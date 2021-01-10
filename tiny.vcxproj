@@ -228,7 +228,8 @@
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <PostBuildEvent>
-      <Command>@copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)bin\$(TargetName)$(TargetExt)</Command>
+      <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
+@copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)bin\$(TargetName)$(TargetExt)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
