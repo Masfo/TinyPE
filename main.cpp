@@ -1,11 +1,12 @@
  
 #define WIN32_LEAN_AND_MEAN									   
+#define NOMINMAX
+#define STRICT
 #include <Windows.h>											   
 
 #pragma comment(linker, "/ALIGN:16")
 #pragma comment(linker, "/MERGE:.rdata=.text")
 #pragma comment(linker, "/MERGE:.pdata=.text")
-
 
 
 void mainCRTStartup()
