@@ -88,6 +88,7 @@
     <OutDir>$(ProjectDir)temp\bin\</OutDir>
     <IntDir>$(ProjectDir)temp\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
     <EmbedManifest>false</EmbedManifest>
+    <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -177,8 +178,12 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
-      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExceptionHandling>false</ExceptionHandling>
       <CallingConvention>Cdecl</CallingConvention>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>
+      </StringPooling>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -198,11 +203,11 @@
       <SetChecksum>true</SetChecksum>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <FixedBaseAddress>false</FixedBaseAddress>
+      <TargetMachine>NotSet</TargetMachine>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
 @copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)bin\$(TargetName)$(TargetExt)
-stripreloc /B /C "$(ProjectDir)bin\$(TargetName)$(TargetExt)"
 @forfiles  /p  "$(ProjectDir)bin" /s /c "cmd /c echo @file @fsize bytes | findstr $(TargetName)$(TargetExt)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -224,6 +229,7 @@ stripreloc /B /C "$(ProjectDir)bin\$(TargetName)$(TargetExt)"
       <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -236,7 +242,8 @@ stripreloc /B /C "$(ProjectDir)bin\$(TargetName)$(TargetExt)"
       <AdditionalDependencies>kernel32.lib</AdditionalDependencies>
       <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <FixedBaseAddress>false</FixedBaseAddress>
+      <FixedBaseAddress>
+      </FixedBaseAddress>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
