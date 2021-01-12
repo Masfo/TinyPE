@@ -9,6 +9,8 @@
 #pragma comment(linker, "/MERGE:.pdata=.text")
 
 
+
+
 void mainCRTStartup()
 {
 	DWORD written{ 0 };
