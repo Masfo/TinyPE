@@ -89,6 +89,7 @@
     <IntDir>$(ProjectDir)temp\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
     <EmbedManifest>false</EmbedManifest>
     <GenerateManifest>false</GenerateManifest>
+    <ExecutablePath>$(SolutionDir);$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -96,6 +97,7 @@
     <IntDir>$(ProjectDir)Temp\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
     <TargetName>$(ProjectName)64</TargetName>
     <EmbedManifest>false</EmbedManifest>
+    <ExecutablePath>$(ProjectDir);$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -165,7 +167,7 @@
       </PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -174,7 +176,6 @@
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
@@ -183,7 +184,8 @@
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <StringPooling>
       </StringPooling>
-      <CompileAs>CompileAsCpp</CompileAs>
+      <CompileAs>Default</CompileAs>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -202,7 +204,8 @@
       </EntryPointSymbol>
       <SetChecksum>true</SetChecksum>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-      <FixedBaseAddress>false</FixedBaseAddress>
+      <FixedBaseAddress>
+      </FixedBaseAddress>
       <TargetMachine>NotSet</TargetMachine>
     </Link>
     <PostBuildEvent>
@@ -226,7 +229,6 @@
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
-      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -239,7 +241,7 @@
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
       <SetChecksum>true</SetChecksum>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
-      <AdditionalDependencies>kernel32.lib</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <FixedBaseAddress>
