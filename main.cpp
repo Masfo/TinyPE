@@ -1,5 +1,5 @@
 #pragma warning(disable : 5039)  // warning C5105: pointer or reference to potentially throwing function passed to
-								 // 'extern "C"' function under -EHc.
+				 // 'extern "C"' function under -EHc.
 
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
@@ -7,9 +7,8 @@
 #include <Windows.h>
 #include <cstdint>
 
-
 #define CONSOLE 0		// 1 - console application
-						// 0 - Windows application
+		                // 0 - Windows application
 
 #pragma comment(linker, "/ALIGN:16")
 #ifndef _DEBUG
@@ -19,9 +18,7 @@
 #endif
 
 
-
 #if (CONSOLE == 1)
-
 #pragma comment(linker, "/SUBSYSTEM:CONSOLE")
 
 void mainCRTStartup()
@@ -31,7 +28,6 @@ void mainCRTStartup()
 }
 
 #else
-
 #pragma comment(linker, "/SUBSYSTEM:WINDOWS")
 
 void WinMainCRTStartup()
