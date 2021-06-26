@@ -6,9 +6,8 @@
 
 #ifndef _DEBUG
 #pragma comment(linker, "/ALIGN:16")
-#pragma comment(linker, "/MERGE:.text=.tinype")
-#pragma comment(linker, "/MERGE:.rdata=.tinype")
-#pragma comment(linker, "/MERGE:.pdata=.tinype")
+#pragma comment(linker, "/MERGE:.rdata=.text")
+#pragma comment(linker, "/MERGE:.pdata=.text")
 #endif
 
 
