@@ -1,12 +1,12 @@
 # TinyPE
 POC Tiny PE - Visual Studio 2019 project
 
-- 64-bit application
-   * console: 1056 bytes
-   * windows: 944 bytes
-- 32-bit application
-   * console: 928 bytes
-   * windows: 896 bytes
+- Console application
+   * 32-bit: 928 bytes
+   * 64-bit: 1056 bytes
+- Gui application
+   * 32-bit: 896 bytes
+   * 64-bit: 944 bytes
    
 Tested on Windows 10 21H1
 
