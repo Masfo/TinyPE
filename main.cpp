@@ -7,7 +7,7 @@
 #include <Windows.h>
 #include <cstdint>
 
-#define CONSOLE 0   // 1 - console application
+#define CONSOLE 1   // 1 - console application
                     // 0 - Windows application
 
 #pragma comment(linker, "/ALIGN:16")
