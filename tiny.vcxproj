@@ -31,7 +31,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -103,23 +103,27 @@
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <FloatingPointModel>Precise</FloatingPointModel>
       <MinimalRebuild>false</MinimalRebuild>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <FunctionLevelLinking>
+      </FunctionLevelLinking>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <DiagnosticsFormat>Caret</DiagnosticsFormat>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>Debug</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;Advapi32.lib;libcpmtd.lib;libcmtd.lib;libconcrtd.lib;libvcruntimed.lib;libucrtd.lib</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
       <ShowProgress>NotSet</ShowProgress>
@@ -128,13 +132,15 @@
       </EntryPointSymbol>
     </Link>
     <PostBuildEvent>
-      <Command>@copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)bin\$(TargetName)$(TargetExt)</Command>
+      <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
+@copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)bin\$(TargetName)$(TargetExt)
+@forfiles  /p  "$(ProjectDir)bin" /s /c "cmd /c echo @file @fsize bytes | findstr $(TargetName)$(TargetExt)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
@@ -149,6 +155,8 @@
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <UseStandardPreprocessor>true</UseStandardPreprocessor>
       <DiagnosticsFormat>Caret</DiagnosticsFormat>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,8 +169,7 @@
     <PostBuildEvent>
       <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
 @copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)bin\$(TargetName)$(TargetExt)
-
-@dir $(ProjectDir)bin\$(TargetName)$(TargetExt) | find "$(TargetName)$(TargetExt)"</Command>
+@forfiles  /p  "$(ProjectDir)bin" /s /c "cmd /c echo @file @fsize bytes | findstr $(TargetName)$(TargetExt)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -200,7 +207,7 @@
       <ShowProgress>NotSet</ShowProgress>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
-      <AdditionalDependencies>kernel32.lib</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
       <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
@@ -263,8 +270,7 @@
     <PostBuildEvent>
       <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
 @copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)bin\$(TargetName)$(TargetExt)
-
-@dir $(ProjectDir)bin\$(TargetName)$(TargetExt) | find "$(TargetName)$(TargetExt)"</Command>
+@forfiles  /p  "$(ProjectDir)bin" /s /c "cmd /c echo @file @fsize bytes | findstr $(TargetName)$(TargetExt)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
