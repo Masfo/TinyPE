@@ -162,7 +162,7 @@
       <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
 @copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)bin\$(TargetName)$(TargetExt)
 
-@dir $(ProjectDir)bin\$(TargetName)$(TargetExt) | findstr "$(TargetName)$(TargetExt)"</Command>
+@dir $(ProjectDir)bin\$(TargetName)$(TargetExt) | find "$(TargetName)$(TargetExt)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -264,7 +264,7 @@
       <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
 @copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)bin\$(TargetName)$(TargetExt)
 
-@dir $(ProjectDir)bin\$(TargetName)$(TargetExt) | findstr "$(TargetName)$(TargetExt)"</Command>
+@dir $(ProjectDir)bin\$(TargetName)$(TargetExt) | find "$(TargetName)$(TargetExt)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
