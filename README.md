@@ -10,7 +10,7 @@ POC Tiny PE - Visual Studio 2019 project
    
 Tested on Windows 10 21H1
 
-<img width="398" alt="readme_image" src="readmeimage.png">
+<img width="795" alt="readme_image" src="readmeimage.png">
 
 
 
