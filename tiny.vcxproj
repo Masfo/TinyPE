@@ -167,7 +167,7 @@
     <EmbedManifest>false</EmbedManifest>
     <GenerateManifest>false</GenerateManifest>
     <ExecutablePath>$(SolutionDir);$(ExecutablePath)</ExecutablePath>
-    <TargetName>$(ProjectName)gui</TargetName>
+    <TargetName>$(ProjectName)gui32</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Console|x64'">
     <LinkIncremental>false</LinkIncremental>

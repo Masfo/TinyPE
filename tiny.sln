@@ -20,8 +20,8 @@ Global
 		{6A731FB2-F1F2-461A-8BCA-349E0C726FE5}.Debug Console|x64.Build.0 = Debug Console|x64
 		{6A731FB2-F1F2-461A-8BCA-349E0C726FE5}.Debug Console|x86.ActiveCfg = Debug Console|Win32
 		{6A731FB2-F1F2-461A-8BCA-349E0C726FE5}.Debug Console|x86.Build.0 = Debug Console|Win32
-		{6A731FB2-F1F2-461A-8BCA-349E0C726FE5}.Debug Gui|x64.ActiveCfg = Release Gui|x64
-		{6A731FB2-F1F2-461A-8BCA-349E0C726FE5}.Debug Gui|x64.Build.0 = Release Gui|x64
+		{6A731FB2-F1F2-461A-8BCA-349E0C726FE5}.Debug Gui|x64.ActiveCfg = Debug Gui|x64
+		{6A731FB2-F1F2-461A-8BCA-349E0C726FE5}.Debug Gui|x64.Build.0 = Debug Gui|x64
 		{6A731FB2-F1F2-461A-8BCA-349E0C726FE5}.Debug Gui|x86.ActiveCfg = Debug Gui|Win32
 		{6A731FB2-F1F2-461A-8BCA-349E0C726FE5}.Debug Gui|x86.Build.0 = Debug Gui|Win32
 		{6A731FB2-F1F2-461A-8BCA-349E0C726FE5}.Release Console|x64.ActiveCfg = Release Console|x64
