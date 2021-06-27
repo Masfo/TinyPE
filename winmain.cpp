@@ -9,17 +9,14 @@
 
 
 #pragma comment(linker, "/ALIGN:16")
-#pragma comment(linker, "/SUBSYSTEM:CONSOLE")
+#pragma comment(linker, "/SUBSYSTEM:WINDOWS")
 #ifndef _DEBUG
 #pragma comment(linker, "/MERGE:.rdata=.text")
 #pragma comment(linker, "/MERGE:.pdata=.text")
 #endif
 
 
-
-void mainCRTStartup()
+void WinMainCRTStartup()
 {
-    DWORD written{ 0 };
-    WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), "Hello", 5, &written, nullptr);
+    MessageBoxA(nullptr, "Hello", "Hello", MB_OK | MB_ICONASTERISK);
 }
-
