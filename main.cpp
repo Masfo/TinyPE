@@ -8,13 +8,12 @@
 #include <cstdint>
 
 #define CONSOLE 0		// 1 - console application
-                        // 0 - Windows application
+                    // 0 - Windows application
 
 #pragma comment(linker, "/ALIGN:16")
 #ifndef _DEBUG
 #pragma comment(linker, "/MERGE:.rdata=.text")
 #pragma comment(linker, "/MERGE:.pdata=.text")
-
 #endif
 
 
