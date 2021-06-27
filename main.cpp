@@ -23,7 +23,7 @@
 void mainCRTStartup()
 {
     DWORD written{ 0 };
-    WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), "Hello", 6, &written, nullptr);
+    WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), "Hello", 5, &written, nullptr);
 }
 
 #else
