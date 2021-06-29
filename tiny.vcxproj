@@ -293,9 +293,11 @@
       <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
     </Link>
     <PostBuildEvent>
-      <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
-@copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)bin\$(TargetName)$(TargetExt)
-@forfiles  /p  "$(ProjectDir)bin" /s /c "cmd /c echo @file @fsize bytes | findstr $(TargetName)$(TargetExt)"</Command>
+      <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
+@copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(SolutionDir)bin\$(TargetName)$(TargetExt)
+@forfiles  /p  "$(SolutionDir)bin" /c "cmd /c echo @file @fsize bytes | findstr "$(TargetName)$(TargetExt)""
+
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Gui|x64'">
@@ -330,9 +332,11 @@
       <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
     </Link>
     <PostBuildEvent>
-      <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
-@copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)bin\$(TargetName)$(TargetExt)
-@forfiles  /p  "$(ProjectDir)bin" /s /c "cmd /c echo @file @fsize bytes | findstr $(TargetName)$(TargetExt)"</Command>
+      <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
+@copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(SolutionDir)bin\$(TargetName)$(TargetExt)
+@forfiles  /p  "$(SolutionDir)bin" /c "cmd /c echo @file @fsize bytes | findstr "$(TargetName)$(TargetExt)""
+
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Console|Win32'">
@@ -487,9 +491,11 @@
       </FixedBaseAddress>
     </Link>
     <PostBuildEvent>
-      <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
-@copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)bin\$(TargetName)$(TargetExt)
-@forfiles  /p  "$(ProjectDir)bin" /s /c "cmd /c echo @file @fsize bytes | findstr $(TargetName)$(TargetExt)"</Command>
+      <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
+@copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(SolutionDir)bin\$(TargetName)$(TargetExt)
+@forfiles  /p  "$(SolutionDir)bin" /c "cmd /c echo @file @fsize bytes | findstr "$(TargetName)$(TargetExt)""
+
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Gui|x64'">
@@ -536,9 +542,11 @@
       </FixedBaseAddress>
     </Link>
     <PostBuildEvent>
-      <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
-@copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)bin\$(TargetName)$(TargetExt)
-@forfiles  /p  "$(ProjectDir)bin" /s /c "cmd /c echo @file @fsize bytes | findstr $(TargetName)$(TargetExt)"</Command>
+      <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
+@copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(SolutionDir)bin\$(TargetName)$(TargetExt)
+@forfiles  /p  "$(SolutionDir)bin" /c "cmd /c echo @file @fsize bytes | findstr "$(TargetName)$(TargetExt)""
+
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
