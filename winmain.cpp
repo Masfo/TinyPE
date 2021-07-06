@@ -1,7 +1,4 @@
 
-#pragma warning(disable : 5039)   // warning C5105: pointer or reference to potentially throwing function passed to
-                                  // 'extern "C"' function under -EHc.
-
 #pragma comment(linker, "/ALIGN:16")
 #pragma comment(linker, "/SUBSYSTEM:WINDOWS")
 

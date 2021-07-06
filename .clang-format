@@ -23,7 +23,7 @@ AllowShortBlocksOnASingleLine: Empty
 AlwaysBreakTemplateDeclarations: false
 AllowShortLoopsOnASingleLine: false
 AllowShortBlocksOnASingleLine: false
-AllowShortFunctionsOnASingleLine: InlineOnly
+AllowShortFunctionsOnASingleLine: Inline
 
 AlwaysBreakAfterReturnType : None
 
