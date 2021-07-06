@@ -1,13 +1,13 @@
 
-#pragma warning(disable : 5039)  // warning C5105: pointer or reference to potentially throwing function passed to
-                                 // 'extern "C"' function under -EHc.
+#pragma warning(disable : 5039)   // warning C5105: pointer or reference to potentially throwing function passed to
+                                  // 'extern "C"' function under -EHc.
 
 #pragma comment(linker, "/ALIGN:16")
 #pragma comment(linker, "/SUBSYSTEM:WINDOWS")
 
 #ifndef _DEBUG
-#pragma comment(linker, "/MERGE:.rdata=.text")
-#pragma comment(linker, "/MERGE:.pdata=.text")
+#    pragma comment(linker, "/MERGE:.rdata=.text")
+#    pragma comment(linker, "/MERGE:.pdata=.text")
 
 #endif
 
@@ -16,8 +16,6 @@
 #define STRICT
 #include <Windows.h>
 #include <cstdint>
-
-
 
 
 void WinMainCRTStartup()
