@@ -1,6 +1,5 @@
 
 #pragma comment(linker, "/ALIGN:16")
-#pragma comment(linker, "/SUBSYSTEM:CONSOLE")
 
 #ifndef _DEBUG
 #    pragma comment(linker, "/MERGE:.rdata=.text")
@@ -12,7 +11,6 @@
 #define STRICT
 #include <Windows.h>
 #include <cstdint>
-
 
 void mainCRTStartup()
 {

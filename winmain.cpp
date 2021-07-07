@@ -1,11 +1,10 @@
 
 #pragma comment(linker, "/ALIGN:16")
-#pragma comment(linker, "/SUBSYSTEM:WINDOWS")
+
 
 #ifndef _DEBUG
 #    pragma comment(linker, "/MERGE:.rdata=.text")
 #    pragma comment(linker, "/MERGE:.pdata=.text")
-
 #endif
 
 #define WIN32_LEAN_AND_MEAN
