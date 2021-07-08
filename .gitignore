@@ -6,3 +6,4 @@ tiny.tlog
 *.db-wal
 *.ipch
 *.opendb
+/clean.cmd
