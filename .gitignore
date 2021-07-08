@@ -2,3 +2,8 @@ v16
 temp/
 /*.cmd
 tiny.tlog
+*.db
+*.db-shm
+*.db-wal
+*.ipch
+*.opendb
