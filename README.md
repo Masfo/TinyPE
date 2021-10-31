@@ -1,12 +1,9 @@
 # TinyPE
-POC Tiny PE - Visual Studio 2019 project
+POC Tiny PE - Visual Studio 2022 project
 
 |           | Console    | Gui       |
 |-----------|------------|-----------|
-| 32-bit    | 928 bytes  | 832 bytes |
-| 64-bit    | 1056 bytes | 864 bytes |
-| With stub |            |           |
-| 32-bit    | 864 bytes  | 832 bytes |
+| 32-bit    | 928 bytes  | 896 bytes |
 | 64-bit    | 992 bytes  | 864 bytes |
 
 
