@@ -7,3 +7,5 @@ tiny.tlog
 *.ipch
 *.opendb
 /clean.cmd
+*.htm
+*.json

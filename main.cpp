@@ -8,10 +8,10 @@
 
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
-#define STRICT
 #include <Windows.h>
-#include <cstdint>
 
+// X64: 992 bytes
+// X86: 928 bytes
 void mainCRTStartup()
 {
     DWORD written{0};

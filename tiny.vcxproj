@@ -45,59 +45,63 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Console|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Gui|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Console|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Gui|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Console|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Gui|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Console|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <VCToolsVersion>
+    </VCToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Gui|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
@@ -184,6 +188,7 @@
     <TargetName>$(ProjectName)gui64</TargetName>
     <EmbedManifest>false</EmbedManifest>
     <ExecutablePath>$(ProjectDir);$(ExecutablePath)</ExecutablePath>
+    <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Console|Win32'">
     <ClCompile>
@@ -299,6 +304,7 @@
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
 @copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(SolutionDir)bin\$(TargetName)$(TargetExt)
 @forfiles  /p  "$(SolutionDir)bin" /c "cmd /c echo @file @fsize bytes | findstr "$(TargetName)$(TargetExt)""
+makep clean-no $(SolutionDir)bin\$(TargetName)$(TargetExt)
 
 </Command>
     </PostBuildEvent>
@@ -340,6 +346,7 @@
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
 @copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(SolutionDir)bin\$(TargetName)$(TargetExt)
 @forfiles  /p  "$(SolutionDir)bin" /c "cmd /c echo @file @fsize bytes | findstr "$(TargetName)$(TargetExt)""
+makep clean-no $(SolutionDir)bin\$(TargetName)$(TargetExt)
 
 </Command>
     </PostBuildEvent>
@@ -353,7 +360,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>false</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <FloatingPointModel>Precise</FloatingPointModel>
       <DebugInformationFormat>None</DebugInformationFormat>
@@ -428,6 +435,7 @@
       <CompileAs>Default</CompileAs>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <DiagnosticsFormat>Caret</DiagnosticsFormat>
+      <AdditionalOptions>/Ob3 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -504,6 +512,7 @@
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
 @copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(SolutionDir)bin\$(TargetName)$(TargetExt)
 @forfiles  /p  "$(SolutionDir)bin" /c "cmd /c echo @file @fsize bytes | findstr "$(TargetName)$(TargetExt)""
+makep clean-no $(SolutionDir)bin\$(TargetName)$(TargetExt)
 
 </Command>
     </PostBuildEvent>
@@ -537,6 +546,8 @@
       <StringPooling>true</StringPooling>
       <DiagnosticsFormat>Caret</DiagnosticsFormat>
       <ExceptionHandling>false</ExceptionHandling>
+      <AdditionalOptions>/Ob3 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -552,11 +563,16 @@
       <FixedBaseAddress>
       </FixedBaseAddress>
       <AdditionalOptions>/stub:stub.bin %(AdditionalOptions)</AdditionalOptions>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <TurnOffAssemblyGeneration>false</TurnOffAssemblyGeneration>
+      <TargetMachine>MachineX64</TargetMachine>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
 @copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(SolutionDir)bin\$(TargetName)$(TargetExt)
 @forfiles  /p  "$(SolutionDir)bin" /c "cmd /c echo @file @fsize bytes | findstr "$(TargetName)$(TargetExt)""
+makep clean-no $(SolutionDir)bin\$(TargetName)$(TargetExt)
 
 </Command>
     </PostBuildEvent>
@@ -589,5 +605,6 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
   </ImportGroup>
 </Project>

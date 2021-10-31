@@ -10,12 +10,14 @@
 
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
-#define STRICT
 #include <Windows.h>
-#include <cstdint>
 
-
+// X64: 864 bytes
+// X86: 896 bytes
 void WinMainCRTStartup()
 {
     MessageBoxA(nullptr, "Hello", "Hello", MB_OK | MB_ICONASTERISK);
 }
+
+
+
