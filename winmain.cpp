@@ -11,7 +11,7 @@
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
 #include <Windows.h>
-#include <winnt.h>
+
 // X64: 864 bytes
 // X86: 896 bytes
 void WinMainCRTStartup()
