@@ -88,7 +88,8 @@
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <PreferredToolArchitecture>
+    </PreferredToolArchitecture>
     <VCToolsVersion>
     </VCToolsVersion>
   </PropertyGroup>
@@ -147,12 +148,14 @@
     <TargetName>$(ProjectName)con64d</TargetName>
     <OutDir>$(ProjectDir)Temp\bin\$(Platform)\</OutDir>
     <IntDir>$(ProjectDir)Temp\$(Configuration)\$(Platform)\$(ProjectName)d\</IntDir>
+    <IncludePath>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Gui|x64'">
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)gui64d</TargetName>
     <OutDir>$(ProjectDir)Temp\bin\$(Platform)\</OutDir>
     <IntDir>$(ProjectDir)Temp\$(Configuration)\$(Platform)\$(ProjectName)d\</IntDir>
+    <IncludePath>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Console|Win32'">
     <LinkIncremental>
@@ -163,6 +166,7 @@
     <GenerateManifest>false</GenerateManifest>
     <ExecutablePath>$(SolutionDir);$(ExecutablePath)</ExecutablePath>
     <TargetName>$(ProjectName)con32</TargetName>
+    <IncludePath>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Gui|Win32'">
     <LinkIncremental />
@@ -172,6 +176,7 @@
     <GenerateManifest>false</GenerateManifest>
     <ExecutablePath>$(SolutionDir);$(ExecutablePath)</ExecutablePath>
     <TargetName>$(ProjectName)gui32</TargetName>
+    <IncludePath>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Console|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -180,6 +185,7 @@
     <TargetName>$(ProjectName)con64</TargetName>
     <EmbedManifest>false</EmbedManifest>
     <ExecutablePath>$(ProjectDir);$(ExecutablePath)</ExecutablePath>
+    <IncludePath>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Gui|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -189,6 +195,7 @@
     <EmbedManifest>false</EmbedManifest>
     <ExecutablePath>$(ProjectDir);$(ExecutablePath)</ExecutablePath>
     <GenerateManifest>false</GenerateManifest>
+    <IncludePath>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Console|Win32'">
     <ClCompile>
