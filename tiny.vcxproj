@@ -442,7 +442,6 @@ makep clean-no $(SolutionDir)bin\$(TargetName)$(TargetExt)
       <CompileAs>Default</CompileAs>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <DiagnosticsFormat>Caret</DiagnosticsFormat>
-      <AdditionalOptions>/Ob3 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

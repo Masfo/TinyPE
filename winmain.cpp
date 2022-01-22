@@ -1,4 +1,8 @@
 
+#define WIN32_LEAN_AND_MEAN
+#define NOMINMAX
+#include <Windows.h>
+
 #pragma comment(linker, "/ALIGN:16")
 
 #ifdef _M_IX86
@@ -8,9 +12,6 @@
 #    endif
 #endif
 
-#define WIN32_LEAN_AND_MEAN
-#define NOMINMAX
-#include <Windows.h>
 
 // X64: 864 bytes
 // X86: 896 bytes
@@ -18,6 +19,3 @@ void WinMainCRTStartup()
 {
     MessageBoxA(nullptr, "Hello", "Hello", MB_OK | MB_ICONASTERISK);
 }
-
-
-

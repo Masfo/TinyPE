@@ -9,3 +9,4 @@ tiny.tlog
 /clean.cmd
 *.htm
 *.json
+/bin/*.txt
