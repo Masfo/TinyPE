@@ -10,3 +10,4 @@ tiny.tlog
 *.htm
 *.json
 /bin/*.txt
+.vs
