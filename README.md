@@ -1,5 +1,6 @@
 # TinyPE
 POC Tiny PE - Visual Studio 2022 project
+  - uses undocumented linker flags: */emittoolversioninfo:no /emitpogophaseinfo*
 
 |           | Console    | Gui       |
 |-----------|------------|-----------|
