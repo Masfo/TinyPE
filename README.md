@@ -3,8 +3,8 @@ POC Tiny PE - Visual Studio 2022 project
 
 |           | Console    | Gui       |
 |-----------|------------|-----------|
-| 32-bit    | 928 bytes  | 896 bytes |
-| 64-bit    | 992 bytes  | 864 bytes |
+| 32-bit    | 864 bytes  | 832 bytes |
+| 64-bit    | 944 bytes  | 816 bytes |
 
 
 

@@ -11,8 +11,8 @@
 #endif
 
 
-// X64: 992 bytes
-// X86: 928 bytes
+// X64: 944 bytes
+// X86: 864 bytes
 void mainCRTStartup()
 {
     DWORD written{0};

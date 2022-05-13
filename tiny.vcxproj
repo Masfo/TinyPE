@@ -196,6 +196,7 @@
     <ExecutablePath>$(ProjectDir);$(ExecutablePath)</ExecutablePath>
     <GenerateManifest>false</GenerateManifest>
     <IncludePath>$(IncludePath)</IncludePath>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Console|Win32'">
     <ClCompile>
@@ -311,7 +312,7 @@
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
 @copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(SolutionDir)bin\$(TargetName)$(TargetExt)
 @forfiles  /p  "$(SolutionDir)bin" /c "cmd /c echo @file @fsize bytes | findstr "$(TargetName)$(TargetExt)""
-makep clean-no $(SolutionDir)bin\$(TargetName)$(TargetExt)
+
 
 </Command>
     </PostBuildEvent>
@@ -353,7 +354,7 @@ makep clean-no $(SolutionDir)bin\$(TargetName)$(TargetExt)
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
 @copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(SolutionDir)bin\$(TargetName)$(TargetExt)
 @forfiles  /p  "$(SolutionDir)bin" /c "cmd /c echo @file @fsize bytes | findstr "$(TargetName)$(TargetExt)""
-makep clean-no $(SolutionDir)bin\$(TargetName)$(TargetExt)
+
 
 </Command>
     </PostBuildEvent>
@@ -407,7 +408,7 @@ makep clean-no $(SolutionDir)bin\$(TargetName)$(TargetExt)
       <FixedBaseAddress>
       </FixedBaseAddress>
       <TargetMachine>NotSet</TargetMachine>
-      <AdditionalOptions>/stub:stub.bin %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
@@ -463,7 +464,7 @@ makep clean-no $(SolutionDir)bin\$(TargetName)$(TargetExt)
       <FixedBaseAddress>
       </FixedBaseAddress>
       <TargetMachine>NotSet</TargetMachine>
-      <AdditionalOptions>/stub:stub.bin %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
@@ -512,13 +513,13 @@ makep clean-no $(SolutionDir)bin\$(TargetName)$(TargetExt)
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <FixedBaseAddress>
       </FixedBaseAddress>
-      <AdditionalOptions>/stub:stub.bin %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
 @copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(SolutionDir)bin\$(TargetName)$(TargetExt)
 @forfiles  /p  "$(SolutionDir)bin" /c "cmd /c echo @file @fsize bytes | findstr "$(TargetName)$(TargetExt)""
-makep clean-no $(SolutionDir)bin\$(TargetName)$(TargetExt)
+
 
 </Command>
     </PostBuildEvent>
@@ -568,7 +569,7 @@ makep clean-no $(SolutionDir)bin\$(TargetName)$(TargetExt)
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <FixedBaseAddress>
       </FixedBaseAddress>
-      <AdditionalOptions>/stub:stub.bin %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no %(AdditionalOptions)</AdditionalOptions>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <TurnOffAssemblyGeneration>false</TurnOffAssemblyGeneration>
@@ -578,7 +579,7 @@ makep clean-no $(SolutionDir)bin\$(TargetName)$(TargetExt)
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
 @copy /Y /B $(OutDir)$(TargetName)$(TargetExt) $(SolutionDir)bin\$(TargetName)$(TargetExt)
 @forfiles  /p  "$(SolutionDir)bin" /c "cmd /c echo @file @fsize bytes | findstr "$(TargetName)$(TargetExt)""
-makep clean-no $(SolutionDir)bin\$(TargetName)$(TargetExt)
+
 
 </Command>
     </PostBuildEvent>
