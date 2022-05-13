@@ -12,9 +12,8 @@
 #    endif
 #endif
 
-
-// X64: 816 bytes
-// X86: 832 bytes
+// x64: 592 bytes
+// x86: 608 bytes
 void WinMainCRTStartup()
 {
     MessageBoxA(nullptr, "Hello", "Hello", MB_OK | MB_ICONASTERISK);

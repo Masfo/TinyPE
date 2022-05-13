@@ -10,9 +10,8 @@
 #    pragma comment(linker, "/MERGE:.pdata=.text")
 #endif
 
-
-// X64: 944 bytes
-// X86: 864 bytes
+// x64: 688 bytes
+// x86: 640 bytes
 void mainCRTStartup()
 {
     DWORD written{0};
