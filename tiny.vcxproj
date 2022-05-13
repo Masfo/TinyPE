@@ -231,6 +231,7 @@
       </EntryPointSymbol>
       <LinkTimeCodeGeneration>
       </LinkTimeCodeGeneration>
+      <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
@@ -271,6 +272,7 @@
       </EntryPointSymbol>
       <LinkTimeCodeGeneration>
       </LinkTimeCodeGeneration>
+      <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
@@ -307,6 +309,7 @@
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
       <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
+      <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
@@ -349,6 +352,7 @@
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
       <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
+      <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
@@ -408,7 +412,7 @@
       <FixedBaseAddress>
       </FixedBaseAddress>
       <TargetMachine>NotSet</TargetMachine>
-      <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
@@ -464,7 +468,7 @@
       <FixedBaseAddress>
       </FixedBaseAddress>
       <TargetMachine>NotSet</TargetMachine>
-      <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
@@ -513,7 +517,7 @@
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <FixedBaseAddress>
       </FixedBaseAddress>
-      <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
@@ -569,7 +573,7 @@
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <FixedBaseAddress>
       </FixedBaseAddress>
-      <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <TurnOffAssemblyGeneration>false</TurnOffAssemblyGeneration>
