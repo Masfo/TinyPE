@@ -2,10 +2,15 @@
 POC Tiny PE - Visual Studio 2022 project
   - uses undocumented linker flags: */emittoolversioninfo:no /emitpogophaseinfo*
 
-|           | Console    | Gui       |
-|-----------|------------|-----------|
-| 64-bit    | 688 bytes  | 592 bytes |
-| 32-bit    | 640 bytes  | 608 bytes |
+| Hello World    | Console    | Gui       |
+|----------------|------------|-----------|
+| 64-bit         | 688 bytes  | 592 bytes |
+| 32-bit         | 640 bytes  | 608 bytes |
+
+| Empty program     | Console    | Gui       |
+|-------------------|------------|-----------|
+| 64-bit            | 416 bytes  | 416 bytes |
+| 32-bit            | 400 bytes  | 400 bytes |
 
 
 
