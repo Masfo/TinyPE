@@ -5,7 +5,7 @@ POC Tiny PE - Visual Studio 2022 project
 | Hello World    | Console    | Gui       |
 |----------------|------------|-----------|
 | 64-bit         | 688 bytes  | 592 bytes |
-| 32-bit         | 640 bytes  | 608 bytes |
+| 32-bit         | 592 bytes  | 560 bytes |
 
 | Empty program     | Console    | Gui       |
 |-------------------|------------|-----------|

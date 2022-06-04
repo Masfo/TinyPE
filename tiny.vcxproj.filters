@@ -22,5 +22,8 @@
     <None Include=".clang-format">
       <Filter>Header Files</Filter>
     </None>
+    <None Include="README.md">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
