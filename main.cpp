@@ -11,10 +11,9 @@
 #endif
 
 // x64: 688 bytes
-// x86: 640 bytes
+// x86: 592 bytes
 void mainCRTStartup()
 {
     DWORD written{0};
     WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), "Hello", 5, &written, nullptr);
-
 }

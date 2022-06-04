@@ -413,6 +413,7 @@
       </FixedBaseAddress>
       <TargetMachine>NotSet</TargetMachine>
       <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
@@ -469,6 +470,7 @@
       </FixedBaseAddress>
       <TargetMachine>NotSet</TargetMachine>
       <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
@@ -518,6 +520,7 @@
       <FixedBaseAddress>
       </FixedBaseAddress>
       <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
