@@ -368,9 +368,9 @@
       <WarningLevel>EnableAllWarnings</WarningLevel>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>MinSpace</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -384,7 +384,7 @@
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
       <ExceptionHandling>false</ExceptionHandling>
       <CallingConvention>Cdecl</CallingConvention>
-      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <StringPooling>
       </StringPooling>
       <CompileAs>Default</CompileAs>
@@ -414,6 +414,7 @@
       <TargetMachine>NotSet</TargetMachine>
       <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
@@ -426,9 +427,9 @@
       <WarningLevel>EnableAllWarnings</WarningLevel>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>MinSpace</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -442,12 +443,13 @@
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
       <ExceptionHandling>false</ExceptionHandling>
       <CallingConvention>Cdecl</CallingConvention>
-      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <StringPooling>
       </StringPooling>
       <CompileAs>Default</CompileAs>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <DiagnosticsFormat>Caret</DiagnosticsFormat>
+      <AdditionalOptions>/Ob0 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -471,6 +473,7 @@
       <TargetMachine>NotSet</TargetMachine>
       <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(ProjectDir)bin" mkdir "$(ProjectDir)bin"
@@ -521,6 +524,7 @@
       </FixedBaseAddress>
       <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
@@ -535,10 +539,10 @@
     <ClCompile>
       <WarningLevel>EnableAllWarnings</WarningLevel>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>MinSpace</Optimization>
       <FunctionLevelLinking>
       </FunctionLevelLinking>
-      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>None</DebugInformationFormat>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -560,8 +564,8 @@
       <StringPooling>true</StringPooling>
       <DiagnosticsFormat>Caret</DiagnosticsFormat>
       <ExceptionHandling>false</ExceptionHandling>
-      <AdditionalOptions>/Ob3 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard_C>Default</LanguageStandard_C>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -581,6 +585,7 @@
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <TurnOffAssemblyGeneration>false</TurnOffAssemblyGeneration>
       <TargetMachine>MachineX64</TargetMachine>
+      <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
