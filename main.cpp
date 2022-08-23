@@ -10,10 +10,13 @@
 #    pragma comment(linker, "/MERGE:.pdata=.text")
 #endif
 
+
 // x64: 688 bytes
 // x86: 592 bytes
 void mainCRTStartup()
 {
+    static constexpr char message[] = "Hello";
+
     DWORD written{0};
-    WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), "Hello", 5, &written, nullptr);
+    WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), message, sizeof(message), &written, nullptr);
 }

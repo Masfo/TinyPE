@@ -16,5 +16,7 @@
 // x86: 560 bytes
 void WinMainCRTStartup()
 {
-    MessageBoxA(nullptr, "Hello", "Hello", MB_OK | MB_ICONASTERISK);
+    static constexpr char message[] = "Hello";
+
+    MessageBoxA(nullptr, message, message, MB_OK | MB_ICONASTERISK);
 }
