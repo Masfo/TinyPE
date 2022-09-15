@@ -227,8 +227,7 @@
       <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
       <ShowProgress>NotSet</ShowProgress>
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
-      <EntryPointSymbol>
-      </EntryPointSymbol>
+      <EntryPointSymbol>maincrt</EntryPointSymbol>
       <LinkTimeCodeGeneration>
       </LinkTimeCodeGeneration>
       <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
@@ -268,8 +267,7 @@
       <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
       <ShowProgress>NotSet</ShowProgress>
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
-      <EntryPointSymbol>
-      </EntryPointSymbol>
+      <EntryPointSymbol>maincrt</EntryPointSymbol>
       <LinkTimeCodeGeneration>
       </LinkTimeCodeGeneration>
       <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
@@ -310,6 +308,7 @@
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
       <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
       <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
+      <EntryPointSymbol>maincrt</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
@@ -353,6 +352,7 @@
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
       <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
       <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
+      <EntryPointSymbol>maincrt</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
@@ -405,8 +405,7 @@
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
       <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
-      <EntryPointSymbol>
-      </EntryPointSymbol>
+      <EntryPointSymbol>maincrt</EntryPointSymbol>
       <SetChecksum>true</SetChecksum>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <FixedBaseAddress>
@@ -464,8 +463,7 @@
       <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
       <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
-      <EntryPointSymbol>
-      </EntryPointSymbol>
+      <EntryPointSymbol>maincrt</EntryPointSymbol>
       <SetChecksum>true</SetChecksum>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <FixedBaseAddress>
@@ -525,6 +523,7 @@
       <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
       <EnableUAC>false</EnableUAC>
+      <EntryPointSymbol>maincrt</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"
@@ -566,6 +565,8 @@
       <ExceptionHandling>false</ExceptionHandling>
       <LanguageStandard_C>Default</LanguageStandard_C>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <EnableModules>true</EnableModules>
+      <AssemblerOutput>All</AssemblerOutput>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -582,10 +583,18 @@
       </FixedBaseAddress>
       <AdditionalOptions>/stub:stub.bin /emittoolversioninfo:no /emitpogophaseinfo %(AdditionalOptions)</AdditionalOptions>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
-      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <DataExecutionPrevention>false</DataExecutionPrevention>
       <TurnOffAssemblyGeneration>false</TurnOffAssemblyGeneration>
       <TargetMachine>MachineX64</TargetMachine>
       <EnableUAC>false</EnableUAC>
+      <ShowProgress>NotSet</ShowProgress>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(IntDir)$(TargetName).map</MapFileName>
+      <EntryPointSymbol>maincrt</EntryPointSymbol>
+      <StackReserveSize>
+      </StackReserveSize>
+      <StackCommitSize>
+      </StackCommitSize>
     </Link>
     <PostBuildEvent>
       <Command>@if not exist "$(SolutionDir)bin" mkdir "$(SolutionDir)bin"

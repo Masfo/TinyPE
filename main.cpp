@@ -13,7 +13,7 @@
 
 // x64: 688 bytes
 // x86: 592 bytes
-void mainCRTStartup()
+void maincrt()
 {
     static constexpr char message[] = "Hello";
 
