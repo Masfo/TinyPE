@@ -11,3 +11,4 @@ tiny.tlog
 *.json
 /bin/*.txt
 .vs
+/out/build
