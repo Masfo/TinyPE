@@ -8,7 +8,6 @@ tiny.tlog
 *.opendb
 /clean.cmd
 *.htm
-*.json
 /bin/*.txt
 .vs
 /out/build

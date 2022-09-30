@@ -42,38 +42,43 @@ set(DEBUG_LIBS
 add_executable (tinycon)
 setup_piku_executable_msvc(tinycon "" 11)
 target_include_directories(tinycon PRIVATE ${CMAKE_CURRENT_LIST_DIR}/src)
-target_link_options(tinycon PRIVATE /entry:maincrt )
+if(MSVC)
 
-if (${CMAKE_BUILD_TYPE} MATCHES "Release")
-    target_link_options(tinycon PRIVATE /MERGE:.pdata=.text /MERGE:.rdata=.text)
-    target_link_options(tinycon PRIVATE /DYNAMICBASE:NO)
-    target_link_options(tinycon PRIVATE /ALIGN:16)
-elseif(${CMAKE_BUILD_TYPE} MATCHES "Debug" OR ${CMAKE_BUILD_TYPE} MATCHES "RelWithDebInfo")
-    target_link_options(tinycon PRIVATE /MTd)
-    target_link_options(tinycon PRIVATE /NODEFAULTLIB)
-    target_link_libraries(tinycon PRIVATE ${DEBUG_LIBS})
+    target_link_options(tinycon PRIVATE /entry:maincrt )
+    
+    if (${CMAKE_BUILD_TYPE} MATCHES "Release")
+        target_link_options(tinycon PRIVATE /MERGE:.pdata=.text /MERGE:.rdata=.text)
+        target_link_options(tinycon PRIVATE /DYNAMICBASE:NO)
+        target_link_options(tinycon PRIVATE /ALIGN:16)
+    elseif(${CMAKE_BUILD_TYPE} MATCHES "Debug" OR ${CMAKE_BUILD_TYPE} MATCHES "RelWithDebInfo")
+        target_link_options(tinycon PRIVATE /MTd)
+        target_link_options(tinycon PRIVATE /NODEFAULTLIB)
+        target_link_libraries(tinycon PRIVATE ${DEBUG_LIBS})
+    endif()
 endif()
-
 
 # TinyGui
 add_executable (tinygui WIN32)
 setup_piku_executable_msvc(tinygui "" 11)
 target_include_directories(tinygui PRIVATE ${CMAKE_CURRENT_LIST_DIR}/src)
-target_link_options(tinygui PRIVATE /entry:maincrt )
 
-if (${CMAKE_BUILD_TYPE} MATCHES "Release")
-    if(${architecture} STREQUAL "32")
-        target_link_options(tinygui PRIVATE /MERGE:.pdata=.text /MERGE:.rdata=.text)
+if(MSVC)
+    target_link_options(tinygui PRIVATE /entry:maincrt )
+
+    if (${CMAKE_BUILD_TYPE} MATCHES "Release")
+        if(${architecture} STREQUAL "32")
+            target_link_options(tinygui PRIVATE /MERGE:.pdata=.text /MERGE:.rdata=.text)
+        endif()
+    
+        target_link_options(tinygui PRIVATE /DYNAMICBASE:NO)
+        target_link_options(tinygui PRIVATE /ALIGN:16)
+    
+    elseif(${CMAKE_BUILD_TYPE} MATCHES "Debug" OR ${CMAKE_BUILD_TYPE} MATCHES "RelWithDebInfo")
+        target_link_options(tinygui PRIVATE /MTd)
+    
+        target_link_options(tinygui PRIVATE /NODEFAULTLIB)
+        target_link_libraries(tinygui PRIVATE ${DEBUG_LIBS})
     endif()
-
-    target_link_options(tinygui PRIVATE /DYNAMICBASE:NO)
-    target_link_options(tinygui PRIVATE /ALIGN:16)
-
-elseif(${CMAKE_BUILD_TYPE} MATCHES "Debug" OR ${CMAKE_BUILD_TYPE} MATCHES "RelWithDebInfo")
-    target_link_options(tinygui PRIVATE /MTd)
-
-    target_link_options(tinygui PRIVATE /NODEFAULTLIB)
-    target_link_libraries(tinygui PRIVATE ${DEBUG_LIBS})
 endif()
 
 # Sources

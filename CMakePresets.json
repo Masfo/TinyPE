@@ -1,0 +1,253 @@
+{
+    "version": 3,
+    "buildPresets": [
+        {
+            "name": "Debug",
+            "displayName": "Debug",
+            "hidden": false,
+            "configurePreset": "x64-Debug"
+        },
+        {
+            "name": "Release",
+            "displayName": "Release",
+            "hidden": false,
+            "configurePreset": "x64-Release"
+        },
+
+        {
+            "name": "Release86",
+            "displayName": "Release-x86",
+            "hidden": false,
+            "configurePreset": "x86-Release"
+        },
+        {
+            "name": "ReleaseUnity",
+            "displayName": "Release Unity",
+            "hidden": false,
+            "configurePreset": "x64-ReleaseUnity"
+        },
+
+        {
+            "name": "ReleaseWithDebug",
+            "displayName": "Release w/ Debug",
+            "hidden": false,
+            "configurePreset": "x64-RelWithDebug"
+        }
+    ],
+
+    "configurePresets": [
+        {
+            "name": "x64-Debug",
+            "displayName": "x64 Debug",
+            "hidden": false,
+            "description": "",
+            "inherits": [
+                "base",
+                "x64",
+                "Debug",
+                "MSVC",
+                "v143",
+                "static"
+            ]
+        },
+        {
+            "name": "x64-Release",
+            "displayName": "x64 Release",
+            "hidden": false,
+            "description": "",
+            "inherits": [
+                "base",
+                "x64",
+                "Release",
+                "MSVC",
+                "v143",
+                "static",
+            ]
+
+        },
+        {
+            "name": "x64-ReleaseUnity",
+            "displayName": "x64 Release Unity",
+            "hidden": false,
+            "description": "",
+            "inherits": [
+                "base",
+                "x64",
+                "Release",
+                "MSVC",
+                "v143",
+                "static",
+                "unity"
+            ]
+
+        },
+        {
+            "name": "x64-RelWithDebug",
+            "displayName": "x64 Release w/ Debug",
+            "hidden": false,
+            "description": "",
+            "inherits": [
+                "base",
+                "x64",
+                "RelWithDebug",
+                "MSVC",
+                "v143",
+                "static"
+            ]
+        },
+        {
+            "name": "x86-Debug",
+            "displayName": "x86 Debug",
+            "hidden": false,
+            "description": "",
+            "inherits": [
+                "base",
+                "x86",
+                "Debug",
+                "MSVC",
+                "v143x86",
+                "static"
+            ]
+        },
+        {
+            "name": "x86-Release",
+            "displayName": "x86 Release",
+            "hidden": false,
+            "description": "",
+            "inherits": [
+                "base",
+                "x86",
+                "Release",
+                "MSVC",
+                "v143x86",
+                "static"
+            ]
+        },
+
+        {
+            "name": "x86-RelWithDebug",
+            "displayName": "x86 Release w/ Debug",
+            "hidden": false,
+            "description": "",
+            "inherits": [
+                "base",
+                "x86",
+                "RelWithDebug",
+                "MSVC",
+                "v143x86",
+                "static"
+            ]
+        },
+        {
+            "name": "base",
+            "hidden": true,
+            "displayName": "Basic Config",
+            "description": "Basic build using Ninja generator",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "generator": "Ninja",
+            "cacheVariables": { "CMAKE_INSTALL_PREFIX": "${sourceDir}/bin" }
+        },
+        {
+            "name": "v143",
+            "hidden": true,
+            "toolset": {
+                "value": "v143,host=x64",
+                "strategy": "external"
+            },
+            "cacheVariables": {}
+        },
+        {
+            "name": "v143x86",
+            "hidden": true,
+            "toolset": {
+                "value": "v143,host=x86",
+                "strategy": "external"
+            },
+            "cacheVariables": {}
+        },
+        {
+            "name": "x64",
+            "hidden": true,
+            "architecture": {
+                "value": "x64",
+                "strategy": "external"
+            },
+            "cacheVariables": { "architecture": "64" }
+        },
+        {
+            "name": "dynamic",
+            "hidden": true,
+            "cacheVariables": {
+                "BUILD_SHARED_LIB": true
+            }
+        },
+        {
+            "name": "static",
+            "hidden": true,
+            "cacheVariables": {
+                "BUILD_SHARED_LIB": false
+            }
+        },
+
+        {
+            "name": "unity",
+            "hidden": true,
+            "cacheVariables": {
+                "UNITY_BUILD": true
+            }
+        },
+        {
+            "name": "x86",
+            "hidden": true,
+            "architecture": {
+                "value": "x86",
+                "strategy": "external"
+            },
+            "cacheVariables": { "architecture": "32" }
+        },
+        {
+            "name": "Debug",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "RelWithDebug",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            }
+        },
+        {
+            "name": "Release",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "MSVC",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "cl.exe"
+            },
+            "toolset": {
+                "value": "host=x64",
+                "strategy": "external"
+            }
+        },
+        {
+            "name": "Clang-CL",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "clang-cl.exe"
+            },
+            "toolset": {
+                "value": "host=x64",
+                "strategy": "external"
+            }
+        }
+    ]
+
+}
