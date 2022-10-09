@@ -6,7 +6,7 @@
 // x86: 592 bytes
 void maincrt()
 {
-    static constexpr char message[] = "Hella";
+    static constexpr char message[] = "Hello";
 
     DWORD written{0};
     WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), message, sizeof(message), &written, nullptr);
