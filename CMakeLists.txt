@@ -1,8 +1,6 @@
 #
 cmake_minimum_required (VERSION 3.23)
 
-set(CMAKE_DISABLE_SOURCE_CHANGES ON)
-set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
 
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
     message(FATAL_ERROR "Do not build in-source. Please remove CMakeCache.txt and the CMakeFiles/ directory. Then build out-of-source.")
@@ -31,6 +29,7 @@ set(DEBUG_LIBS
     libvcruntimed.lib
     libucrtd.lib
 )
+
 
 # globally:
 #set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /Ob1")
@@ -86,13 +85,13 @@ add_subdirectory(src)
 
 
 # Install
-install(TARGETS tinycon
-        CONFIGURATIONS Release
-DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/install)
-
-install(TARGETS tinygui
-        CONFIGURATIONS Release
-DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/install)
-
+#install(TARGETS tinycon
+#        CONFIGURATIONS Release
+#DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/install)
+#
+#install(TARGETS tinygui
+#        CONFIGURATIONS Release
+#DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/install)
+#
 
 
