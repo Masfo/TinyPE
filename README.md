@@ -14,7 +14,7 @@ POC Tiny PE - Visual Studio 2022 (open as local folder)
 
 
 
-Tested on Windows 11 21H2 (22000.978)
+Tested on Windows 11 21H2 (22000.1098)
 
 <img width="1095" alt="readme_image" src="readmeimage.png">
 
