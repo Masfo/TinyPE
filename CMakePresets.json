@@ -1,40 +1,5 @@
 {
     "version": 3,
-    "buildPresets": [
-        {
-            "name": "Debug",
-            "displayName": "Debug",
-            "hidden": false,
-            "configurePreset": "x64-Debug"
-        },
-        {
-            "name": "Release",
-            "displayName": "Release",
-            "hidden": false,
-            "configurePreset": "x64-Release"
-        },
-
-        {
-            "name": "Release86",
-            "displayName": "Release-x86",
-            "hidden": false,
-            "configurePreset": "x86-Release"
-        },
-        {
-            "name": "ReleaseUnity",
-            "displayName": "Release Unity",
-            "hidden": false,
-            "configurePreset": "x64-ReleaseUnity"
-        },
-
-        {
-            "name": "ReleaseWithDebug",
-            "displayName": "Release w/ Debug",
-            "hidden": false,
-            "configurePreset": "x64-RelWithDebug"
-        }
-    ],
-
     "configurePresets": [
         {
             "name": "x64-Debug",
@@ -61,39 +26,24 @@
                 "Release",
                 "MSVC",
                 "v143",
-                "static",
+                "static"
             ]
 
         },
         {
-            "name": "x64-ReleaseUnity",
-            "displayName": "x64 Release Unity",
-            "hidden": false,
-            "description": "",
-            "inherits": [
-                "base",
-                "x64",
-                "Release",
-                "MSVC",
-                "v143",
-                "static",
-                "unity"
-            ]
-
-        },
-        {
-            "name": "x64-RelWithDebug",
+            "name": "x64-Release-Debug",
             "displayName": "x64 Release w/ Debug",
             "hidden": false,
             "description": "",
             "inherits": [
                 "base",
                 "x64",
-                "RelWithDebug",
+                "RelWithDeb",
                 "MSVC",
                 "v143",
                 "static"
             ]
+
         },
         {
             "name": "x86-Debug",
@@ -123,20 +73,20 @@
                 "static"
             ]
         },
-
         {
-            "name": "x86-RelWithDebug",
+            "name": "x86-Release-Debug",
             "displayName": "x86 Release w/ Debug",
             "hidden": false,
             "description": "",
             "inherits": [
                 "base",
                 "x86",
-                "RelWithDebug",
+                "RelWithDeb",
                 "MSVC",
-                "v143x86",
+                "v143",
                 "static"
             ]
+
         },
         {
             "name": "base",
@@ -145,7 +95,10 @@
             "description": "Basic build using Ninja generator",
             "binaryDir": "${sourceDir}/out/build/${presetName}",
             "generator": "Ninja",
-            "cacheVariables": { "CMAKE_INSTALL_PREFIX": "${sourceDir}/bin" }
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/bin",
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+            }
         },
         {
             "name": "v143",
@@ -188,14 +141,6 @@
                 "BUILD_SHARED_LIB": false
             }
         },
-
-        {
-            "name": "unity",
-            "hidden": true,
-            "cacheVariables": {
-                "UNITY_BUILD": true
-            }
-        },
         {
             "name": "x86",
             "hidden": true,
@@ -204,6 +149,7 @@
                 "strategy": "external"
             },
             "cacheVariables": { "architecture": "32" }
+
         },
         {
             "name": "Debug",
@@ -213,7 +159,7 @@
             }
         },
         {
-            "name": "RelWithDebug",
+            "name": "RelWithDeb",
             "hidden": true,
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
@@ -249,5 +195,4 @@
             }
         }
     ]
-
 }
