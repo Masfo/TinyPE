@@ -176,6 +176,7 @@
             "name": "MSVC",
             "hidden": true,
             "cacheVariables": {
+                "CMAKE_C_COMPILER": "cl.exe",
                 "CMAKE_CXX_COMPILER": "cl.exe"
             },
             "toolset": {
@@ -187,6 +188,7 @@
             "name": "Clang-CL",
             "hidden": true,
             "cacheVariables": {
+                "CMAKE_C_COMPILER": "clang-cl.exe",
                 "CMAKE_CXX_COMPILER": "clang-cl.exe"
             },
             "toolset": {
