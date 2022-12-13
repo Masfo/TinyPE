@@ -51,7 +51,7 @@ function(setup_piku_executable_msvc target outputname cx_standard)
 
 
         target_compile_options("${target}" PRIVATE /nologo)
-        target_compile_options("${target}" PRIVATE /Zc:__cplusplus /Zc:alignedNew)
+        target_compile_options("${target}" PRIVATE /Zc:__cplusplus /Zc:alignedNew /Zc:checkGwOdr)
         target_compile_options("${target}" PRIVATE /utf-8)
         target_compile_options("${target}" PRIVATE /EHsc)
         target_compile_options("${target}" PRIVATE /Za)
@@ -78,6 +78,9 @@ function(setup_piku_executable_msvc target outputname cx_standard)
             target_compile_options("${target}"  PRIVATE /O2 /Os)
             target_compile_options("${target}"  PRIVATE /GS-)
             target_compile_options("${target}"  PRIVATE /GF)
+
+            target_compile_options("${target}"  PRIVATE /Gw)
+
 
             target_link_options("${target}" PRIVATE /Release)
             target_link_options("${target}" PRIVATE /INCREMENTAL:NO)
