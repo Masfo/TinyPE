@@ -1,5 +1,5 @@
 # TinyPE
-POC Tiny PE - Visual Studio 2022 (open as local folder)
+POC Tiny PE - CMake and VS2022 (open as local folder)
   - uses undocumented linker flags: */emittoolversioninfo:no /emitpogophaseinfo*
 
 | Hello World    | Console    | Gui       |
