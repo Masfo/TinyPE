@@ -18,73 +18,24 @@ set(PROJECT_VERSION 1.0.0)
 project(TinyPE VERSION ${PROJECT_VERSION} LANGUAGES CXX)
 
 
-if(NOT WIN32 OR NOT MSVC OR CMAKE_CXX_COMPILER_ID MATCHES "Clang" )
-message(FATAL_ERROR "\nThis project is really just for Windows and MSVC")
-endif()
-
 
 include(SetupMSVC)
 
-set(DEBUG_LIBS
-    kernel32
-    user32
-    libcmtd.lib
-    libvcruntimed.lib
-    libucrtd.lib
-)
+add_executable (tinycon) 
+setup_tiny_pe(tinycon "" "${CMAKE_CURRENT_LIST_DIR}/src")
 
-
-# globally:
-#set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /Ob1")
-# for specified source files:
-#set_source_files_properties(${sources} PROPERTIES COMPILE_FLAGS "/Ob1")
-
-
-# Tinycon
-add_executable (tinycon)
-setup_piku_executable_msvc(tinycon "" 11)
-target_include_directories(tinycon PRIVATE ${CMAKE_CURRENT_LIST_DIR}/src)
-if(MSVC)
-    target_link_options(tinycon PRIVATE /entry:maincrt )
-    
-    if (${CMAKE_BUILD_TYPE} MATCHES "Release")
-        target_link_options(tinycon PRIVATE /MERGE:.pdata=.text /MERGE:.rdata=.text)
-        target_link_options(tinycon PRIVATE /DYNAMICBASE:NO)
-        target_link_options(tinycon PRIVATE /ALIGN:16)
-    elseif(${CMAKE_BUILD_TYPE} MATCHES "Debug" OR ${CMAKE_BUILD_TYPE} MATCHES "RelWithDebInfo")
-        target_link_options(tinycon PRIVATE /MTd)
-        target_link_options(tinycon PRIVATE /NODEFAULTLIB)
-        target_link_libraries(tinycon PRIVATE ${DEBUG_LIBS})
-    endif()
-endif()
-
-# TinyGui
 add_executable (tinygui WIN32)
-setup_piku_executable_msvc(tinygui "" 11)
-target_include_directories(tinygui PRIVATE ${CMAKE_CURRENT_LIST_DIR}/src)
+setup_tiny_pe(tinygui "" "${CMAKE_CURRENT_LIST_DIR}/src")
 
-if(MSVC)
-    target_link_options(tinygui PRIVATE /entry:maincrt )
 
-    if (${CMAKE_BUILD_TYPE} MATCHES "Release") 
-        if("${CMAKE_GENERATOR_PLATFORM}" STREQUAL "x86" )
-          #  target_link_options(tinygui PRIVATE /MERGE:.pdata=.text /MERGE:.rdata=.text)
-        endif()
-    
-        target_link_options(tinygui PRIVATE /DYNAMICBASE:NO)
-        target_link_options(tinygui PRIVATE /ALIGN:16)
-    
-    elseif(${CMAKE_BUILD_TYPE} MATCHES "Debug" OR ${CMAKE_BUILD_TYPE} MATCHES "RelWithDebInfo")
-        target_link_options(tinygui PRIVATE /MTd)
-    
-        target_link_options(tinygui PRIVATE /NODEFAULTLIB)
-        target_link_libraries(tinygui PRIVATE ${DEBUG_LIBS})
-    endif()
-endif()
-
-# Sources
 add_subdirectory(src)
 
+
+add_custom_target(print-exe-sizes
+   COMMAND ${CMAKE_BUILD_TOOL} clean
+    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+   DEPENDS  ${CMAKE_SOURCE_DIR}/bin/tinygui32.exe
+)
 
 # Install
 #install(TARGETS tinycon
