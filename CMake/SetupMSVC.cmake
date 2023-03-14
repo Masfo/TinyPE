@@ -31,9 +31,11 @@ function(setup_tiny_pe target outputname include_dir)
         set(PIKU_EXE_NAME ${outputname})
     endif()
 
+
+
+
     string(APPEND PIKU_EXE_NAME ${architecture})
 
-        
     set_property(TARGET "${target}" PROPERTY VS_STARTUP_PROJECT  ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 
     set_target_properties("${target}" PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
@@ -59,7 +61,7 @@ function(setup_tiny_pe target outputname include_dir)
     target_compile_options("${target}" PRIVATE /EHsc)
     target_compile_options("${target}" PRIVATE /Za)
 
-    target_compile_options("${target}"  PRIVATE /fp:precise)
+    target_compile_options("${target}" PRIVATE /fp:precise)
     target_compile_options("${target}" PRIVATE /diagnostics:caret)
 
 

@@ -2,7 +2,7 @@
     "version": 3,
     "configurePresets": [
         {
-            "name": "x64-Debug",
+            "name": "x64-debug",
             "displayName": "x64 Debug",
             "hidden": false,
             "description": "",
@@ -16,7 +16,7 @@
             ]
         },
         {
-            "name": "x64-Release",
+            "name": "x64-release",
             "displayName": "x64 Release",
             "hidden": false,
             "description": "",
@@ -33,7 +33,7 @@
         {
             "name": "x64-Release-Debug",
             "displayName": "x64 Release w/ Debug",
-            "hidden": false,
+            "hidden": true,
             "description": "",
             "inherits": [
                 "base",
@@ -46,7 +46,7 @@
 
         },
         {
-            "name": "x86-Debug",
+            "name": "x86-debug",
             "displayName": "x86 Debug",
             "hidden": false,
             "description": "",
@@ -60,7 +60,7 @@
             ]
         },
         {
-            "name": "x86-Release",
+            "name": "x86-release",
             "displayName": "x86 Release",
             "hidden": false,
             "description": "",
@@ -76,7 +76,7 @@
         {
             "name": "x86-Release-Debug",
             "displayName": "x86 Release w/ Debug",
-            "hidden": false,
+            "hidden": true,
             "description": "",
             "inherits": [
                 "base",
@@ -195,6 +195,24 @@
                 "value": "host=x64",
                 "strategy": "external"
             }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "Debug(x64)",
+            "configurePreset": "x64-debug"
+        },
+        {
+            "name": "Release(x64)",
+            "configurePreset": "x64-release"
+        },
+        {
+            "name": "Debug(x86)",
+            "configurePreset": "x86-debug"
+        },
+        {
+            "name": "Release(x86)",
+            "configurePreset": "x86-release"
         }
     ]
 }

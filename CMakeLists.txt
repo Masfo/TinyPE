@@ -17,8 +17,6 @@ set(PROJECT_VERSION 1.0.0)
 
 project(TinyPE VERSION ${PROJECT_VERSION} LANGUAGES CXX)
 
-
-
 include(SetupMSVC)
 
 add_executable (tinycon) 
@@ -29,7 +27,6 @@ setup_tiny_pe(tinygui "" "${CMAKE_CURRENT_LIST_DIR}/src")
 
 
 add_subdirectory(src)
-
 
 add_custom_target(print-exe-sizes
    COMMAND ${CMAKE_BUILD_TOOL} clean
