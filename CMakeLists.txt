@@ -1,5 +1,5 @@
 #
-cmake_minimum_required (VERSION 3.23)
+cmake_minimum_required (VERSION 3.25)
 
 
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
@@ -22,10 +22,8 @@ if(NOT WIN32 OR NOT MSVC OR CMAKE_CXX_COMPILER_ID MATCHES "Clang" )
 message(FATAL_ERROR "\nThis project is really just for Windows and MSVC")
 endif()
 
+
 include(SetupMSVC)
-
-
-
 
 set(DEBUG_LIBS
     kernel32
@@ -47,7 +45,6 @@ add_executable (tinycon)
 setup_piku_executable_msvc(tinycon "" 11)
 target_include_directories(tinycon PRIVATE ${CMAKE_CURRENT_LIST_DIR}/src)
 if(MSVC)
-
     target_link_options(tinycon PRIVATE /entry:maincrt )
     
     if (${CMAKE_BUILD_TYPE} MATCHES "Release")
@@ -69,9 +66,9 @@ target_include_directories(tinygui PRIVATE ${CMAKE_CURRENT_LIST_DIR}/src)
 if(MSVC)
     target_link_options(tinygui PRIVATE /entry:maincrt )
 
-    if (${CMAKE_BUILD_TYPE} MATCHES "Release")
-        if(${architecture} STREQUAL "32")
-            target_link_options(tinygui PRIVATE /MERGE:.pdata=.text /MERGE:.rdata=.text)
+    if (${CMAKE_BUILD_TYPE} MATCHES "Release") 
+        if("${CMAKE_GENERATOR_PLATFORM}" STREQUAL "x86" )
+          #  target_link_options(tinygui PRIVATE /MERGE:.pdata=.text /MERGE:.rdata=.text)
         endif()
     
         target_link_options(tinygui PRIVATE /DYNAMICBASE:NO)

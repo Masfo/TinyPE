@@ -68,6 +68,9 @@ function(setup_piku_executable_msvc target outputname cx_standard)
         target_compile_options("${target}" PRIVATE /Wall)
         # target_compile_options("${target}" PRIVATE /WX) # Warnings as errors
 
+        if (${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.25")
+            set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>")
+        endif()
 
         # Release
         if (${CMAKE_BUILD_TYPE} MATCHES "Release")
@@ -106,8 +109,6 @@ function(setup_piku_executable_msvc target outputname cx_standard)
         # Release w/ Debug
         if(${CMAKE_BUILD_TYPE} MATCHES "RelWithDebInfo")
             string(APPEND PIKU_EXE_NAME "dr")
-
-            target_compile_options("${target}"  PRIVATE /Zi)     # /ZI edit/continue
             target_link_options("${target}" PRIVATE /DEBUG)
         endif()
 
@@ -126,7 +127,6 @@ function(setup_piku_executable_msvc target outputname cx_standard)
 
             target_compile_options("${target}"  PRIVATE /RTC1)
             target_compile_options("${target}"  PRIVATE /GS)
-            target_compile_options("${target}"  PRIVATE /Zi)     # /ZI edit/continue
 
             target_link_options("${target}" PRIVATE /DEBUG)
 
