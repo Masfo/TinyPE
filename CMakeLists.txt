@@ -23,6 +23,11 @@ include(SetupMSVC)
 setup_tiny_pe(tinycon "" "" "${CMAKE_CURRENT_LIST_DIR}/src")
 setup_tiny_pe(tinygui WIN32 "" "${CMAKE_CURRENT_LIST_DIR}/src")
 
+setup_tiny_pe(emptycon "" "" "${CMAKE_CURRENT_LIST_DIR}/src")
+setup_tiny_pe(emptygui WIN32 "" "${CMAKE_CURRENT_LIST_DIR}/src")
+
+
+
 
 add_subdirectory(src)
 
