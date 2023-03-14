@@ -1,5 +1,5 @@
 
-function(setup_tiny_pe target outputname include_dir)
+function(setup_tiny_pe target desktop outputname include_dir)
 
     if(NOT WIN32 OR NOT MSVC OR CMAKE_CXX_COMPILER_ID MATCHES "Clang" )
         message(FATAL_ERROR "\nThis project is really just for Windows and MSVC")
@@ -13,6 +13,7 @@ function(setup_tiny_pe target outputname include_dir)
         libucrtd.lib
     )
 
+    add_executable ("${target}" ${desktop}) 
 
     set_property(TARGET "${target}" PROPERTY CXX_STANDARD          20)
     set_property(TARGET "${target}" PROPERTY CXX_STANDARD_REQUIRED ON)

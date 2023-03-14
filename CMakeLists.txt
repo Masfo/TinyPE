@@ -19,11 +19,9 @@ project(TinyPE VERSION ${PROJECT_VERSION} LANGUAGES CXX)
 
 include(SetupMSVC)
 
-add_executable (tinycon) 
-setup_tiny_pe(tinycon "" "${CMAKE_CURRENT_LIST_DIR}/src")
 
-add_executable (tinygui WIN32)
-setup_tiny_pe(tinygui "" "${CMAKE_CURRENT_LIST_DIR}/src")
+setup_tiny_pe(tinycon "" "" "${CMAKE_CURRENT_LIST_DIR}/src")
+setup_tiny_pe(tinygui WIN32 "" "${CMAKE_CURRENT_LIST_DIR}/src")
 
 
 add_subdirectory(src)
