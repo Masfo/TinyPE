@@ -5,6 +5,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
         message(FATAL_ERROR "\nThis project is really just for Windows and MSVC")
     endif()
 
+
     set(DEBUG_LIBS
         kernel32
         user32
@@ -25,17 +26,17 @@ function(setup_tiny_pe target desktop outputname include_dir)
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
     set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
-     set(PIKU_EXE_NAME ${target})
+     set(TINY_EXE_NAME ${target})
 
     if(NOT outputname STREQUAL "")
         set_target_properties(${target} PROPERTIES OUTPUT_NAME "${outputname}")
-        set(PIKU_EXE_NAME ${outputname})
+        set(TINY_EXE_NAME ${outputname})
     endif()
 
 
 
 
-    string(APPEND PIKU_EXE_NAME ${architecture})
+    string(APPEND TINY_EXE_NAME ${architecture})
 
     set_property(TARGET "${target}" PROPERTY VS_STARTUP_PROJECT  ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 
@@ -103,7 +104,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
         
 
         # Generate out stub
-        if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/stub.bin)
+        if(NOT EXISTS ${CMAKE_SOURCE_DIR}/stub.bin)
             file(WRITE newstub.txt "4D 5A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00")
             # CertUtil has been included since Windows XP
             execute_process( COMMAND certutil -f -decodehex newstub.txt stub.bin WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
@@ -111,7 +112,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
         endif()
 
         # Our own stub
-        if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/stub.bin)
+        if(EXISTS ${CMAKE_SOURCE_DIR}/stub.bin)
             target_link_options("${target}" PRIVATE  /stub:${CMAKE_CURRENT_SOURCE_DIR}/stub.bin )
         else()
             message(WARNING "Could not find stub.bin")
@@ -137,8 +138,8 @@ function(setup_tiny_pe target desktop outputname include_dir)
         target_link_options("${target}" PRIVATE /DEBUG)
     endif()
 
-    set_target_properties(${target} PROPERTIES OUTPUT_NAME "${PIKU_EXE_NAME}")
-
+    set_target_properties(${target} PROPERTIES OUTPUT_NAME "${TINY_EXE_NAME}")
+    unset(TINY_EXE_NAME)
 
 
     # Minimum Windows 10.
