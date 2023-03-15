@@ -101,10 +101,12 @@ function(setup_tiny_pe target desktop outputname include_dir)
         # Undocumented options
         target_link_options("${target}" PRIVATE  /emittoolversioninfo:no /emitpogophaseinfo)
         
+
         # Generate out stub
         if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/stub.bin)
-            execute_process( COMMAND cmd /C genstub.cmd
-                                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+            file(WRITE newstub.txt "4D 5A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00")
+            execute_process( COMMAND certutil -f -decodehex newstub.txt stub.bin WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+            file(REMOVE newstub.txt)
         endif()
 
         # Our own stub
