@@ -125,7 +125,7 @@
                 "value": "x64",
                 "strategy": "external"
             },
-            "cacheVariables": { "architecture": "64" }
+            "cacheVariables": { }
         },
         {
             "name": "dynamic",
@@ -148,7 +148,7 @@
                 "value": "x86",
                 "strategy": "external"
             },
-            "cacheVariables": { "architecture": "32" }
+            "cacheVariables": { }
 
         },
         {

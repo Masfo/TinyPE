@@ -23,8 +23,10 @@ function(setup_tiny_pe target desktop outputname include_dir)
     target_include_directories("${target}" PRIVATE ${include_dir})
 
     set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_BINARY_DIR}/install)
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
     set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 
      set(TINY_EXE_NAME ${target})
 
@@ -33,10 +35,10 @@ function(setup_tiny_pe target desktop outputname include_dir)
         set(TINY_EXE_NAME ${outputname})
     endif()
 
+    # Add arch to name
+    string(SUBSTRING ${CMAKE_CXX_COMPILER_ARCHITECTURE_ID} 1 -1 TINY_PE_ARCH)
+    string(APPEND TINY_EXE_NAME ${TINY_PE_ARCH})
 
-
-
-    string(APPEND TINY_EXE_NAME ${architecture})
 
     set_property(TARGET "${target}" PROPERTY VS_STARTUP_PROJECT  ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 
@@ -113,7 +115,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
 
         # Our own stub
         if(EXISTS ${CMAKE_SOURCE_DIR}/stub.bin)
-            target_link_options("${target}" PRIVATE  /stub:${CMAKE_CURRENT_SOURCE_DIR}/stub.bin )
+            target_link_options("${target}" PRIVATE /stub:${CMAKE_CURRENT_SOURCE_DIR}/stub.bin )
         else()
             message(WARNING "Could not find stub.bin")
         endif()
@@ -133,6 +135,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
         endif()
 
         target_link_libraries("${target}" PRIVATE ${DEBUG_LIBS})
+
         target_link_options("${target}" PRIVATE /MTd)
         target_link_options("${target}" PRIVATE /NODEFAULTLIB)
         target_link_options("${target}" PRIVATE /DEBUG)
