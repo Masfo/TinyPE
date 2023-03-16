@@ -115,7 +115,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
 
         # Our own stub
         if(EXISTS ${CMAKE_SOURCE_DIR}/stub.bin)
-            target_link_options("${target}" PRIVATE /stub:${CMAKE_CURRENT_SOURCE_DIR}/stub.bin )
+            target_link_options("${target}" PRIVATE /stub:${CMAKE_SOURCE_DIR}/stub.bin )
         else()
             message(WARNING "Could not find stub.bin")
         endif()
@@ -139,6 +139,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
         target_link_options("${target}" PRIVATE /MTd)
         target_link_options("${target}" PRIVATE /NODEFAULTLIB)
         target_link_options("${target}" PRIVATE /DEBUG  /NOVCFEATURE /NOCOFFGRPINFO)
+          target_link_options("${target}" PRIVATE  /emittoolversioninfo:no /emitpogophaseinfo)
     endif()
 
     set_target_properties(${target} PROPERTIES OUTPUT_NAME "${TINY_EXE_NAME}")
