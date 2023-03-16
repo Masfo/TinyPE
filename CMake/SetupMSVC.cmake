@@ -121,7 +121,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
         endif()
 
     elseif(${CMAKE_BUILD_TYPE} MATCHES "Debug" OR ${CMAKE_BUILD_TYPE} MATCHES "RelWithDebInfo")
-        string(APPEND PIKU_EXE_NAME "d")
+        string(APPEND TINY_EXE_NAME "d")
         target_compile_definitions("${target}" PRIVATE -DDEBUG)
 
         target_compile_options("${target}"  PRIVATE /JMC)    # Just my debugging
@@ -138,7 +138,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
 
         target_link_options("${target}" PRIVATE /MTd)
         target_link_options("${target}" PRIVATE /NODEFAULTLIB)
-        target_link_options("${target}" PRIVATE /DEBUG)
+        target_link_options("${target}" PRIVATE /DEBUG  /NOVCFEATURE /NOCOFFGRPINFO)
     endif()
 
     set_target_properties(${target} PROPERTIES OUTPUT_NAME "${TINY_EXE_NAME}")
