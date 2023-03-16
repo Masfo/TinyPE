@@ -139,7 +139,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
         target_link_options("${target}" PRIVATE /MTd)
         target_link_options("${target}" PRIVATE /NODEFAULTLIB)
         target_link_options("${target}" PRIVATE /DEBUG  /NOVCFEATURE /NOCOFFGRPINFO)
-          target_link_options("${target}" PRIVATE  /emittoolversioninfo:no /emitpogophaseinfo)
+
     endif()
 
     set_target_properties(${target} PROPERTIES OUTPUT_NAME "${TINY_EXE_NAME}")
