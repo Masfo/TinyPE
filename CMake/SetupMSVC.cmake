@@ -77,9 +77,9 @@ function(setup_tiny_pe target desktop outputname include_dir)
     target_compile_options("${target}" PRIVATE /Wall)
     # target_compile_options("${target}" PRIVATE /WX) # Warnings as errors
 
+  set_target_properties("${target}" PROPERTIES DEBUG_POSTFIX "d") 
 
-
-        target_link_options("${target}" PRIVATE /entry:maincrt )
+    target_link_options("${target}" PRIVATE /entry:maincrt )
     
     if (${CMAKE_BUILD_TYPE} MATCHES "Release")
         target_link_options("${target}" PRIVATE /MERGE:.pdata=.text /MERGE:.rdata=.text)
@@ -121,7 +121,6 @@ function(setup_tiny_pe target desktop outputname include_dir)
         endif()
 
     elseif(${CMAKE_BUILD_TYPE} MATCHES "Debug" OR ${CMAKE_BUILD_TYPE} MATCHES "RelWithDebInfo")
-        string(APPEND TINY_EXE_NAME "d")
         target_compile_definitions("${target}" PRIVATE -DDEBUG)
 
         target_compile_options("${target}"  PRIVATE /JMC)    # Just my debugging
