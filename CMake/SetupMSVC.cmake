@@ -7,8 +7,6 @@ function(setup_tiny_pe target desktop outputname include_dir)
 
 
     set(DEBUG_LIBS
-        kernel32
-        user32
         libcmtd.lib
         libvcruntimed.lib
         libucrtd.lib
