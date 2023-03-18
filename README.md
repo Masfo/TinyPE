@@ -4,7 +4,7 @@ POC Tiny PE - CMake and VS2022 (open as local folder)
 
 | Hello World    | Console    | Gui       |
 |----------------|------------|-----------|
-| 64-bit         | 688 bytes  | 592 bytes |
+| 64-bit         | 672 bytes  | 592 bytes |
 | 32-bit         | 592 bytes  | 560 bytes |
 
 | Empty program     | Console    | Gui       |
