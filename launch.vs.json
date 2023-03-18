@@ -1,0 +1,18 @@
+{
+    "version": "0.2.1",
+    "defaults": {},
+    "configurations": [
+        {
+            "type": "default",
+            "project": "bin\\tinycon64d.exe",
+            "name": "tinycon64 [args]",
+            "args": [ "" ]
+        },
+        {
+            "type": "default",
+            "project": "bin\\tinygui64d.exe",
+            "name": "tinygui64 [args]",
+            "args": [ "" ]
+        }
+    ]
+}
