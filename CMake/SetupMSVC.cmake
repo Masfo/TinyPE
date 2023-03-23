@@ -5,8 +5,15 @@ function(setup_tiny_pe target desktop outputname include_dir)
         message(FATAL_ERROR "\nThis project is really just for Windows and MSVC")
     endif()
 
+    set(RELEASE_LIBS
+        kernel32.lib
+        user32.lib
+    )
 
     set(DEBUG_LIBS
+        kernel32.lib
+        user32.lib
+
         libcmtd.lib
         libvcruntimed.lib
         libucrtd.lib
@@ -94,6 +101,8 @@ function(setup_tiny_pe target desktop outputname include_dir)
 
         target_compile_options("${target}"  PRIVATE /Gw)
 
+        target_link_libraries("${target}" PRIVATE ${RELEASE_LIBS})
+
 
         target_link_options("${target}" PRIVATE /Release)
         target_link_options("${target}" PRIVATE /INCREMENTAL:NO)
@@ -156,6 +165,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
         /wd5039 # pointer or reference to potentially throwing function passed to 'extern "C"' function under -EHc.
         /wd5262 # implicit fall-through occurs here; are you missing a break statement? Use [[fallthrough]] when a break 
                 # statement is intentionally omitted between cases
+        /wd4820 # 4' bytes padding added after data member
     )
 endfunction()
 
