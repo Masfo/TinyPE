@@ -131,14 +131,14 @@
             "name": "dynamic",
             "hidden": true,
             "cacheVariables": {
-                "BUILD_SHARED_LIB": true
+               // "BUILD_SHARED_LIB": true
             }
         },
         {
             "name": "static",
             "hidden": true,
             "cacheVariables": {
-                "BUILD_SHARED_LIB": false
+               // "BUILD_SHARED_LIB": false
             }
         },
         {

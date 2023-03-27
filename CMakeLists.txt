@@ -31,11 +31,7 @@ setup_tiny_pe(emptygui WIN32 "" "${CMAKE_CURRENT_LIST_DIR}/src")
 
 add_subdirectory(src)
 
-add_custom_target(print-exe-sizes
-   COMMAND ${CMAKE_BUILD_TOOL} clean
-    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-   DEPENDS  ${CMAKE_SOURCE_DIR}/bin/tinygui32.exe
-)
+
 
 # Install
 #install(TARGETS tinycon
