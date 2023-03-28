@@ -1,7 +1,6 @@
 
 #include <Windows.h>
 
-
 // x64: 672 bytes
 // x86: 592 bytes
 void maincrt()
