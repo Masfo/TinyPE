@@ -89,6 +89,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
         target_link_options(${target} PRIVATE /DYNAMICBASE:NO)
         target_link_options(${target} PRIVATE /ALIGN:16)
 
+
         set_target_properties(${target} PROPERTIES INTERPROCEDURAL_OPTIMIZATION ON)
 
         target_compile_definitions(${target} PRIVATE -DNDEBUG)
@@ -99,12 +100,12 @@ function(setup_tiny_pe target desktop outputname include_dir)
 
         target_compile_options(${target}  PRIVATE /Gw /MP)
 
-        target_link_libraries(${target} PRIVATE ${RELEASE_LIBS})
-
-
         target_link_options(${target} PRIVATE /RELEASE)
         target_link_options(${target} PRIVATE /INCREMENTAL:NO)
         target_link_options(${target} PRIVATE /OPT:REF /OPT:ICF)
+        #target_link_options(${target} PRIVATE /DEPENDENTLOADFLAG:0x800)
+
+        target_link_libraries(${target} PRIVATE ${RELEASE_LIBS})
 
         # Undocumented options
         target_link_options(${target} PRIVATE  /emittoolversioninfo:no /emitpogophaseinfo)

@@ -4,16 +4,17 @@
     "configurations": [
         {
             "type": "default",
-            "project": "bin\\tinycon64d.exe",
-            "name": "tinycon64 [args]",
-            "args": [ "" ]
+            "project": "CMakeLists.txt",
+            "projectTarget": "tinycon64",
+            "name": "Tiny [args]",
+            "args": [ "hello", "world" ]
         },
         {
             "type": "default",
-            "project": "bin\\tinygui64d.exe",
-            "name": "tinygui64 [args]",
-            "args": [ "" ]
+            "project": "CMakeLists.txt",
+            "projectTarget": "",
+            "name": "Tiny ",
+            "args": []
         }
     ]
 }
-
