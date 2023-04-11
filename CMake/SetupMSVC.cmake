@@ -86,7 +86,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
     
     if (${CMAKE_BUILD_TYPE} MATCHES "Release")
         target_link_options(${target} PRIVATE /MERGE:.pdata=.text /MERGE:.rdata=.text)
-        target_link_options(${target} PRIVATE /DYNAMICBASE:NO)
+        #target_link_options(${target} PRIVATE /DYNAMICBASE:NO)
         target_link_options(${target} PRIVATE /ALIGN:16)
 
 
@@ -127,12 +127,11 @@ function(setup_tiny_pe target desktop outputname include_dir)
         endif()
 
     elseif(${CMAKE_BUILD_TYPE} MATCHES "Debug" OR ${CMAKE_BUILD_TYPE} MATCHES "RelWithDebInfo")
-        target_compile_definitions(${target} PRIVATE -DDEBUG)
 
         target_compile_options(${target}  PRIVATE /JMC)    # Just my debugging
         target_compile_options(${target}  PRIVATE /RTC1)
         target_compile_options(${target}  PRIVATE /Od)
-        target_compile_options(${target}  PRIVATE /GS /MTd)
+        target_compile_options(${target}  PRIVATE /GS)
         #target_compile_options(${target}  PRIVATE /Ob1)
 
         if (${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.25")
