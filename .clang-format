@@ -1,3 +1,4 @@
+
 Language: Cpp
 Standard: Latest
 ColumnLimit: 140
@@ -7,6 +8,9 @@ PointerAlignment: Left
 ReferenceAlignment: Left
 UseTab: ForContinuationAndIndentation
 TabWidth: 4
+
+AlignOperands: Align
+BreakBeforeBinaryOperators: None
 
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: Consecutive 
@@ -24,8 +28,9 @@ SeparateDefinitionBlocks: Always
 SpaceAfterTemplateKeyword: false
 
 IntegerLiteralSeparator:
-  Binary: 4
-  Hex: 4
+    Binary: 4
+    Decimal: 0
+    Hex: 4
 
 
 BinPackArguments: false
@@ -39,3 +44,5 @@ IncludeCategories:
   # finally other "" includes go between system headers and our headers
   - Regex: '^"'
     Priority: 0
+
+InsertNewlineAtEOF: true
