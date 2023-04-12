@@ -86,7 +86,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
     
     if (${CMAKE_BUILD_TYPE} MATCHES "Release")
         target_link_options(${target} PRIVATE /MERGE:.pdata=.text /MERGE:.rdata=.text)
-        #target_link_options(${target} PRIVATE /DYNAMICBASE:NO)
+        target_link_options(${target} PRIVATE /DYNAMICBASE:NO)
         target_link_options(${target} PRIVATE /ALIGN:16)
 
 
