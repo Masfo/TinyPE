@@ -128,15 +128,19 @@ function(setup_tiny_pe target desktop outputname include_dir)
 
     elseif(${CMAKE_BUILD_TYPE} MATCHES "Debug" OR ${CMAKE_BUILD_TYPE} MATCHES "RelWithDebInfo")
 
+        target_compile_definitions(${target} PRIVATE -DDEBUG)
+
         target_compile_options(${target}  PRIVATE /JMC)    # Just my debugging
         target_compile_options(${target}  PRIVATE /RTC1)
         target_compile_options(${target}  PRIVATE /Od)
         target_compile_options(${target}  PRIVATE /GS)
         #target_compile_options(${target}  PRIVATE /Ob1)
 
-        if (${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.25")
-            set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>")
+        if (POLICY CMP0141)
+            cmake_policy(SET CMP0141 NEW)
+            set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
         endif()
+
 
         target_link_libraries(${target} PRIVATE ${DEBUG_LIBS})
 
