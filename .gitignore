@@ -13,3 +13,4 @@ tiny.tlog
 /out
 /CMakeCache.txt
 /CMakeFiles
+/.vscode
