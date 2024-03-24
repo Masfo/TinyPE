@@ -23,6 +23,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
 
     add_executable (${target} ${desktop}) 
 
+
     set_property(TARGET ${target} PROPERTY CXX_STANDARD          23)
     set_property(TARGET ${target} PROPERTY CXX_STANDARD_REQUIRED ON)
     set_property(TARGET ${target} PROPERTY CXX_EXTENSIONS        OFF)
@@ -61,6 +62,12 @@ function(setup_tiny_pe target desktop outputname include_dir)
     #target_compile_definitions(${target} PRIVATE -D_CRT_SECURE_NO_WARNINGS)
     target_compile_definitions(${target} PRIVATE -DNOMINMAX)
     target_compile_definitions(${target} PRIVATE -DWIN32_LEAN_AND_MEAN)
+
+    # 
+    if(NOT desktop STREQUAL "")
+        target_compile_definitions(${target} PRIVATE -DTINY_GUI)
+    endif()
+
 
 
     target_compile_options(${target} PRIVATE /nologo)
