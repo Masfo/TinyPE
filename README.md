@@ -16,9 +16,9 @@ POC Tiny PE - CMake and VS2022 (open as local folder)
 
 Tested on Windows 11:
   - 21H2 (22000.258 - 22000.2057)
-  - 22H2 (22621.1992 - 22621.3296)
+  - 22H2 (22621.1992 - 22621.3447)
 
-<img width="1095" alt="readme_image" src="readmeimage.png">
+<img width="831" alt="readme_image" src="readmeimage.png">
 
 
 
