@@ -74,16 +74,14 @@ function(setup_tiny_pe target desktop outputname include_dir)
     target_compile_options(${target} PRIVATE /Zc:__cplusplus /Zc:alignedNew /Zc:checkGwOdr)
     target_compile_options(${target} PRIVATE /utf-8)
     target_compile_options(${target} PRIVATE /EHsc)
-    target_compile_options(${target} PRIVATE /Za)
+    #target_compile_options(${target} PRIVATE /Za)
 
     target_compile_options(${target} PRIVATE /fp:precise)
     target_compile_options(${target} PRIVATE /diagnostics:caret)
 
-
-    target_compile_options(${target} PRIVATE /experimental:module)
     target_compile_options(${target} PRIVATE /Zc:preprocessor)
     target_compile_options(${target} PRIVATE /permissive-)
-    #target_compile_options(${target} PRIVATE /std:c++latest)
+    target_compile_options(${target} PRIVATE /std:c++latest)
 
     target_compile_options(${target} PRIVATE /Wall)
     # target_compile_options(${target} PRIVATE /WX) # Warnings as errors
