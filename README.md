@@ -1,4 +1,7 @@
 # TinyPE
+
+# **Not for production use, disables security features.**
+
 POC Tiny PE - CMake and VS2022 (open as local folder)
   - uses undocumented linker flags: */emittoolversioninfo:no /emitpogophaseinfo*
 
