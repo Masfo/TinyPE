@@ -69,7 +69,6 @@ function(setup_tiny_pe target desktop outputname include_dir)
     endif()
 
 
-
     target_compile_options(${target} PRIVATE /nologo)
     target_compile_options(${target} PRIVATE /Zc:__cplusplus /Zc:alignedNew /Zc:checkGwOdr)
     target_compile_options(${target} PRIVATE /utf-8)
@@ -90,25 +89,29 @@ function(setup_tiny_pe target desktop outputname include_dir)
     target_link_options(${target} PRIVATE /entry:maincrt )
     
     if (${CMAKE_BUILD_TYPE} MATCHES "Release")
-        target_link_options(${target} PRIVATE /MERGE:.pdata=.text /MERGE:.rdata=.text)
-        target_link_options(${target} PRIVATE /DYNAMICBASE:NO)
-        target_link_options(${target} PRIVATE /ALIGN:16)
 
+        if(CMAKE_SIZEOF_VOID_P EQUAL 4)
+            target_link_options(${target} PRIVATE /DYNAMICBASE:NO)
+            # Adds 48 bytes on x86
+        endif()
 
         set_target_properties(${target} PROPERTIES INTERPROCEDURAL_OPTIMIZATION ON)
 
         target_compile_definitions(${target} PRIVATE -DNDEBUG)
-        
+
+        #
+        target_compile_options(${target}  PRIVATE /GS-) # Buffer security check
+        target_compile_options(${target}  PRIVATE /GF) # Eliminate duplicate strings
+        target_compile_options(${target}  PRIVATE /MP)
         target_compile_options(${target}  PRIVATE /O2 /Os)
-        target_compile_options(${target}  PRIVATE /GS-)
-        target_compile_options(${target}  PRIVATE /GF)
 
-        target_compile_options(${target}  PRIVATE /Gw /MP)
+        #
+        target_link_options(${target} PRIVATE /MERGE:.pdata=.text /MERGE:.rdata=.text)
 
-        target_link_options(${target} PRIVATE /RELEASE)
+        #
+        target_link_options(${target} PRIVATE /ALIGN:16)
         target_link_options(${target} PRIVATE /INCREMENTAL:NO)
-        target_link_options(${target} PRIVATE /OPT:REF /OPT:ICF)
-        #target_link_options(${target} PRIVATE /DEPENDENTLOADFLAG:0x800)
+        target_link_options(${target} PRIVATE /RELEASE)
 
         target_link_libraries(${target} PRIVATE ${RELEASE_LIBS})
 
@@ -138,8 +141,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
         target_compile_options(${target}  PRIVATE /JMC)    # Just my debugging
         target_compile_options(${target}  PRIVATE /RTC1)
         target_compile_options(${target}  PRIVATE /Od)
-        target_compile_options(${target}  PRIVATE /GS)
-        #target_compile_options(${target}  PRIVATE /Ob1)
+        target_compile_options(${target}  PRIVATE /GS) # Buffer security check
 
         if (POLICY CMP0141)
             cmake_policy(SET CMP0141 NEW)
@@ -162,11 +164,6 @@ function(setup_tiny_pe target desktop outputname include_dir)
     set_target_properties(${target} PROPERTIES OUTPUT_NAME ${OUTPUT_EXE})
 
 
-    # Minimum Windows 10.
-    # target_compile_definitions(CMakeTest+1 PRIVATE -DWINVER=0x0a00)
-    # target_compile_definitions(CMakeTest+1 PRIVATE -D_WIN32_WINNT=0x0a00)
-
-     # Check if has manifest.txt then add one
     target_link_options(${target} PRIVATE  /MANIFEST:NO)
 
     # Disabled warnings

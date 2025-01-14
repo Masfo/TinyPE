@@ -9,7 +9,6 @@ endif()
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/CMake")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_CXX_SYSROOT_FLAG_CODE "list(APPEND CMAKE_CXX_SOURCE_FILE_EXTENSIONS ixx)")
 
 enable_testing()
 
@@ -26,21 +25,5 @@ setup_tiny_pe(tinygui WIN32 "" "${CMAKE_CURRENT_LIST_DIR}/src")
 setup_tiny_pe(emptycon "" "" "${CMAKE_CURRENT_LIST_DIR}/src")
 setup_tiny_pe(emptygui WIN32 "" "${CMAKE_CURRENT_LIST_DIR}/src")
 
-
-
-
 add_subdirectory(src)
-
-
-
-# Install
-#install(TARGETS tinycon
-#        CONFIGURATIONS Release
-#DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/install)
-#
-#install(TARGETS tinygui
-#        CONFIGURATIONS Release
-#DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/install)
-#
-
 
