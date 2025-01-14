@@ -170,9 +170,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
     target_compile_options(${target} PRIVATE 
         
         /wd5039 # pointer or reference to potentially throwing function passed to 'extern "C"' function under -EHc.
-        /wd5262 # implicit fall-through occurs here; are you missing a break statement? Use [[fallthrough]] when a break 
-                # statement is intentionally omitted between cases
-        /wd4820 # 4' bytes padding added after data member
+        #/wd4820 # 4' bytes padding added after data member
     )
 endfunction()
 
