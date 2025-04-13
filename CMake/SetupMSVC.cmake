@@ -112,6 +112,8 @@ function(setup_tiny_pe target desktop outputname include_dir)
         target_link_options(${target} PRIVATE /ALIGN:16)
         target_link_options(${target} PRIVATE /INCREMENTAL:NO)
         target_link_options(${target} PRIVATE /RELEASE)
+        target_link_options(${target} PRIVATE /DEBUG:NONE)
+
 
         target_link_libraries(${target} PRIVATE ${RELEASE_LIBS})
 
