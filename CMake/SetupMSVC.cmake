@@ -119,7 +119,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
 
         # Undocumented options
         target_link_options(${target} PRIVATE  /emittoolversioninfo:no /emitpogophaseinfo)
-        target_link_options(${target} PRIVATE  /EMITVOLATILEMETADATA:NO)
+        target_link_options(${target} PRIVATE  /emitvolatilemetadata:no)
         target_compile_options(${target} PRIVATE /volatileMetadata- /d2VolatileMetadata-)
 
 

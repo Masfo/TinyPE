@@ -22,7 +22,7 @@ Tested on Windows 11:
   - 22H2 (22621.1992 - 22621.4317)
   - 24H2 (26100.1742 - 26100.3775) 
 
-<img width="831" alt="readme_image" src="readmeimage.png">
+<img width="860" alt="readme_image" src="readmeimage.png">
 
 
 
