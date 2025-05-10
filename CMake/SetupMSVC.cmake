@@ -1,4 +1,4 @@
-
+﻿
 function(setup_tiny_pe target desktop outputname include_dir)
 
     if(NOT WIN32 OR NOT MSVC OR CMAKE_CXX_COMPILER_ID MATCHES "Clang" )
@@ -119,6 +119,11 @@ function(setup_tiny_pe target desktop outputname include_dir)
 
         # Undocumented options
         target_link_options(${target} PRIVATE  /emittoolversioninfo:no /emitpogophaseinfo)
+        target_link_options(${target} PRIVATE  /EMITVOLATILEMETADATA:NO)
+        #target_compile_options(${target}  PRIVATE /volatileMetadata- /d2VolatileMetadata-)
+
+
+
         
 
         # Generate out stub

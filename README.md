@@ -1,4 +1,4 @@
-# TinyPE
+﻿# TinyPE
 
 # **Not for production use, disables security features.**
 
@@ -7,13 +7,13 @@ POC Tiny PE - CMake and VS2022 (open as local folder)
 
 | Hello World    | Console    | Gui       |
 |----------------|------------|-----------|
-| 64-bit         | 672 bytes  | 592 bytes |
-| 32-bit         | 592 bytes  | 560 bytes |
+| 64-bit         | 640 bytes  | 560 bytes |
+| 32-bit         | 560 bytes  | 528 bytes |
 
 | Empty program     | Console    | Gui       |
 |-------------------|------------|-----------|
-| 64-bit            | 416 bytes  | 416 bytes |
-| 32-bit            | 400 bytes  | 400 bytes |
+| 64-bit            | 384 bytes  | 384 bytes |
+| 32-bit            | 368 bytes  | 368 bytes |
 
 
 
