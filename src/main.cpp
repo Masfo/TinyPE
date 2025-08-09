@@ -18,7 +18,7 @@ static unsigned int seed = seed_from_time(__TIME__);
 
 unsigned int rand()
 {
-	seed = seed * 1664525 + 1013904223; // Numerical Recipes LCG parameters
+	seed = seed * 1664525 + 1013904223;
 	return seed;
 }
 
