@@ -10,11 +10,11 @@
 //  x86: 592 bytes
 void maincrt()
 {
-	static constexpr char message[] = "Hello";
+	static constexpr char message[] = "Hello1";
 
 #if defined(TINY_GUI)
 	MessageBoxA(nullptr, message, message, MB_OK);
 #else
-	WriteConsoleA(GetStdHandle(STD_OUTPUT_HANDLE), message, sizeof(message), nullptr, 0);
+	WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), message, sizeof(message), nullptr, 0);
 #endif
 }
