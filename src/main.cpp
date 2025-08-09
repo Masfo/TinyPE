@@ -31,7 +31,8 @@ void maincrt()
 #if defined(TINY_GUI)
 	MessageBoxA(nullptr, message, message, MB_OK);
 #else
-	for (int i = 0; i < 4096; ++i)
+	unsigned int size = 1024 * 1024; // 1 MB
+	for (int i = 0; i < size; ++i)
 	{
 		char c = static_cast<char>((rand() % 95) + 32); // Map to printable ASCII characters
 		WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), &c, 1, nullptr, 0);
