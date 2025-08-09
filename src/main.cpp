@@ -25,12 +25,34 @@ unsigned int rand()
 
 void maincrt()
 {
-	static constexpr char message[] = "Hello";
-
 #if defined(TINY_GUI)
-	MessageBoxA(nullptr, message, message, MB_OK);
 #else
-	unsigned int size = 1024 * 16;
+
+	 auto cmdline = GetCommandLineA();
+
+	unsigned int parsed_size = 4; 
+	const char*  arg         = cmdline;
+
+	// Skip program name
+	while (*arg && *arg != ' ')
+		arg++;
+	while (*arg && *arg == ' ')
+		arg++;
+
+	// Parse number if argument exists
+	if (*arg)
+	{
+		parsed_size = 0;
+		while (*arg >= '0' && *arg <= '9')
+		{
+			parsed_size = parsed_size * 10 + (*arg - '0');
+			arg++;
+		}
+	}
+
+
+
+	unsigned int size = 1024 * parsed_size;
 
 	unsigned int chars_per_line = 0;
 	for (unsigned int i = 0; i < size; ++i)
@@ -42,10 +64,16 @@ void maincrt()
 		if (chars_per_line >= 50+(rand()%40))
 		{
 			WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), "\n", 1, nullptr, 0);
+
+				size--;
+
 			chars_per_line = 0;
 
-		if(rand() % 10 == 0)
-			WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), "\n", 1, nullptr, 0);
+		if (rand() % 10 == 0)
+			{
+				WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), "\n", 1, nullptr, 0);
+				size--;
+			}
 		}
 
 
