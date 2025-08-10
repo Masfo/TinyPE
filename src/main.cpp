@@ -9,6 +9,8 @@
 //  x64: 640 bytes
 //  x86: 560 bytes
 
+// Random gen is for testing another project. This branch is not related to main branch.
+
 constexpr unsigned int seed_from_time(const char* t)
 {
 	return (t[0] - '0') * 36000u + (t[1] - '0') * 3600u + (t[3] - '0') * 600u + (t[4] - '0') * 60u + (t[6] - '0') * 10u + (t[7] - '0');
