@@ -33,16 +33,14 @@ void maincrt()
 
 	auto cmdline = GetCommandLineA();
 
-	unsigned int parsed_size = 4;
+	unsigned int parsed_size = 1;
 	const char*  arg         = cmdline;
 
-	// Skip program name
 	while (*arg && *arg != ' ')
 		arg++;
 	while (*arg && *arg == ' ')
 		arg++;
 
-	// Parse number if argument exists
 	if (*arg)
 	{
 		parsed_size = 0;
@@ -53,29 +51,40 @@ void maincrt()
 		}
 	}
 
+	#if 0
+	int handle = STD_OUTPUT_HANDLE;
+	#else
+	int handle = STD_ERROR_HANDLE;
+
+	#endif
 
 	unsigned int size = 1024 * parsed_size;
 
 	unsigned int chars_per_line = 0;
 	for (unsigned int i = 0; i < size; ++i)
 	{
+		#if 0
 		char c = static_cast<char>((rand() % 95) + 32);
-		WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), &c, 1, nullptr, 0);
+		WriteFile(GetStdHandle(handle), &c, 1, nullptr, 0);
 
 		chars_per_line++;
 		if (chars_per_line >= 50 + (rand() % 40))
 		{
-			WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), "\n", 1, nullptr, 0);
+			WriteFile(GetStdHandle(handle), "\n", 1, nullptr, 0);
 			size--;
 
 			chars_per_line = 0;
 
 			if (rand() % 10 == 0)
 			{
-				WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), "\n", 1, nullptr, 0);
+				WriteFile(GetStdHandle(handle), "\n", 1, nullptr, 0);
 				size--;
 			}
 		}
+		#else
+		WriteFile(GetStdHandle(handle), "A", 1, nullptr, 0);
+
+		#endif
 	}
 #endif
 }
