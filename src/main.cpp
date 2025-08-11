@@ -69,6 +69,8 @@ void maincrt()
 		char c = static_cast<char>((rand() % 95) + 32);
 		WriteFile(GetStdHandle(handle), &c, 1, nullptr, 0);
 
+		Sleep(100);
+
 		chars_per_line++;
 		if (chars_per_line >= 50 + (rand() % 40))
 		{
@@ -85,6 +87,7 @@ void maincrt()
 		}
 		#else
 		WriteFile(GetStdHandle(handle), "A", 1, nullptr, 0);
+		Sleep(100);
 
 		#endif
 	}
