@@ -2,15 +2,15 @@
 #include <Windows.h>
 
 // GUI
-//	x64: 592 bytes
-//	x86: 560 bytes
+//	x64: 560 bytes
+//	x86: 528 bytes
 
 // CON:
-//  x64: 672 bytes
-//  x86: 592 bytes
+//  x64: 640 bytes
+//  x86: 560 bytes
 void maincrt()
 {
-	static constexpr char message[] = "Hello1";
+	static constexpr char message[] = "Hello";
 
 #if defined(TINY_GUI)
 	MessageBoxA(nullptr, message, message, MB_OK);
