@@ -8,7 +8,7 @@ tiny.tlog
 *.opendb
 /clean.cmd
 *.htm
-/bin/*.txt
+/bin/
 .vs
 /out
 /CMakeCache.txt
