@@ -70,7 +70,7 @@ function(setup_tiny_pe target desktop outputname include_dir)
 
 
     target_compile_options(${target} PRIVATE /nologo)
-    target_compile_options(${target} PRIVATE /Zc:__cplusplus /Zc:alignedNew /Zc:checkGwOdr)
+    target_compile_options(${target} PRIVATE /Zc:__cplusplus /Zc:alignedNew /Zc:checkGwOdr /Zc:enumTypes)
     target_compile_options(${target} PRIVATE /utf-8)
     target_compile_options(${target} PRIVATE /EHsc)
     #target_compile_options(${target} PRIVATE /Za)
