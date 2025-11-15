@@ -1,4 +1,4 @@
-﻿# TinyPE
+# TinyPE
 
 # **Not for production use, disables security features.**
 
@@ -20,7 +20,7 @@ POC Tiny PE - CMake and VS2022 (open as local folder)
 Tested on Windows 11:
   - 21H2 (22000.258  - 22000.2057)
   - 22H2 (22621.1992 - 22621.4317)
-  - 24H2 (26100.1742 - 26100.6899) 
+  - 24H2 (26100.1742 - 26100.7171) 
 
 <img width="860" alt="readme_image" src="readmeimage.png">
 
