@@ -1,4 +1,4 @@
-﻿
+
 #include <Windows.h>
 
 // GUI
